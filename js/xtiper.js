@@ -246,10 +246,10 @@ Xclass.pt.html = function(){
 
     xtiper_con_icon = c.icon ? ' xtiper_con_icon' : '';
     var btnclass = new Array();
-    btnclass[0] = c.btn1!=null ? ' class="active"' : '';
-    btnclass[1] = c.btn2!=null ? ' class="active"' : '';
-    btnclass[2] = c.btn3!=null ? ' class="active"' : '';
-    btnclass[3] = c.btn4!=null ? ' class="active"' : '';
+    btnclass[0] = c.btn1!=null ? ' class="xactive"' : '';
+    btnclass[1] = c.btn2!=null ? ' class="xactive"' : '';
+    btnclass[2] = c.btn3!=null ? ' class="xactive"' : '';
+    btnclass[3] = c.btn4!=null ? ' class="xactive"' : '';
 
     var btnfun = new Array();
     btnfun[0] = c.btn1 ? c.btn1 : null;

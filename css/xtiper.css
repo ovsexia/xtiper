@@ -103,18 +103,18 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,code,pre,form,fieldset,legend,input
 .xtiper_btn ul:after {content:""; display:block; clear:both;}
 .xtiper_btn li {float:left; overflow:hidden; position:relative;}
 .xtiper_btn li:after {content:""; display:block; width:1px; height:40px; overflow:hidden; position:absolute; top:0; right:0; background-color:#eaeaea;}
-.xtiper_btn li.active:after {background-color:rgba(255,255,255,0.2);}
+.xtiper_btn li.xactive:after {background-color:rgba(255,255,255,0.2);}
 .xtiper_btn1 li {width:100%; float:none;}
 .xtiper_btn2 li {width:50%;}
 .xtiper_btn3 li {width:33.3%; -webkit-box-flex:1; -ms-flex:1; flex:1;}
 .xtiper_btn4 li {width:25%; -webkit-box-flex:1; -ms-flex:1; flex:1;}
 .xtiper_btn li button {width:100%; height:40px; background-color:#fff; cursor:pointer; color:#222; font-size:14px; border:0;}
-.xtiper_btn li.active button {color:#fff;}
-.xtiper_btn li.active button {background-color:#a8a8a8;}
-.xtiper_btn_success li.active button, .xtiper_btn_hello li.active button, .xtiper_btn_success .xtiper_btnbor, .xtiper_btn_hello .xtiper_btnbor {background-color:#37b72c;}
-.xtiper_btn_error li.active button, .xtiper_btn_error .xtiper_btnbor {background-color:#e75445;}
-.xtiper_btn_warning li.active button, .xtiper_btn_ask li.active button, .xtiper_btn_warning .xtiper_btnbor, .xtiper_btn_ask .xtiper_btnbor {background-color:#f89310;}
-.xtiper_btn1 li.active button {background-color:#fff; color:#222;}
+.xtiper_btn li.xactive button {color:#fff;}
+.xtiper_btn li.xactive button {background-color:#a8a8a8;}
+.xtiper_btn_success li.xactive button, .xtiper_btn_hello li.xactive button, .xtiper_btn_success .xtiper_btnbor, .xtiper_btn_hello .xtiper_btnbor {background-color:#37b72c;}
+.xtiper_btn_error li.xactive button, .xtiper_btn_error .xtiper_btnbor {background-color:#e75445;}
+.xtiper_btn_warning li.xactive button, .xtiper_btn_ask li.xactive button, .xtiper_btn_warning .xtiper_btnbor, .xtiper_btn_ask .xtiper_btnbor {background-color:#f89310;}
+.xtiper_btn1 li.xactive button {background-color:#fff; color:#222;}
 .xtiper_btn li:last-child:after {display:none;}
 .xtiper_btn li button:hover {opacity:0.9;}
 .xtiper_btnbor {width:100%; height:4px; overflow:hidden; background-color:#c3c3c3; position:relative;}
