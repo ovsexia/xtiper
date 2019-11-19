@@ -1,0 +1,2334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="#"/>
+<link href="css/xtiper.css" type="text/css" rel="stylesheet" />
+<script src="js/xtiper.js" type="text/javascript"></script>
+<title>Xtiper</title>
+</head>
+
+<body>
+
+<div class="top top_height app_width hide_ful show_1200">
+  <div class="top_btn ll"><button><span></span><span></span><span></span></button></div>
+  <div class="top_cen">关于 Xtiper</div>
+  <div class="top_btn lr"><button><span></span><span></span></button></div>
+</div>
+<div class="top_zw top_height hide_ful show_1200"></div>
+
+<div class="pleft_zw"></div>
+<div class="page">
+  <div class="page_pr">
+    <div class="pleft">
+      <ul>
+        <li class="on li_explain"><a href="#explain">关于 Xtiper</a></li>
+        <li class="li_msg"><a href="#msg">短消息 xtip.msg</a></li>
+        <li class="li_danmu"><a href="#danmu">弹幕 xtip.danmu</a></li>
+        <li class="li_tips"><a href="#tips">气泡 xtip.tips</a></li>
+        <li class="li_alert"><a href="#alert">通知 xtip.alert</a></li>
+        <li class="li_confirm"><a href="#confirm">反馈 xtip.confirm</a></li>
+        <li class="li_win"><a href="#win">弹窗层 xtip.win</a></li>
+        <li class="li_photo hide_app"><a href="#photo">相册层 xtip.photo</a></li>
+        <li class="li_photoapp"><a href="#photoapp">移动端相册层 xtip.photoApp</a></li>
+        <li class="li_open"><a href="#open">页面层 xtip.open</a></li>
+        <li class="li_load"><a href="#load">加载层 xtip.load</a></li>
+        <li class="li_sheet"><a href="#sheet">面板菜单 xtip.sheet</a></li>
+        <li class="li_close"><a href="#close">关闭层 xtip.close&lt;All&gt;</a></li>
+      </ul>
+    </div><!--pleft-->
+    
+    <div class="pright">
+      <div id="explain" class="maindiv">
+        <div class="page_tit">关于 Xtiper</div>
+        <div class="page_con">
+          <div class="page_tit2">概述</div>
+          <p>Xtiper 是一款整合 PC 、移动端的弹层弹窗（甚至还有弹幕）web 应用解决方案。采用原生的 javascript 编写，体积小，不依赖任何 js 库，不加载任何图片，使用方便。</p>
+          <p><br></p>
+          <div class="page_tit2">注意事项</div>
+          <p>1.Xtiper 可拖动的层可以拖动 <span class="litit">3/4</span> 的窗体到浏览器外部</p>
+          <p><br></p>
+          <p>2.面板菜单主要应用于移动端 ，其他层 pc 和移动端可通用</p>
+          <p><br></p>
+          <p>3.所有 <span class="litit">string</span> 类型的可选值都可以用首字母简写表示，例如： <span class="litit">black</span> 可简写成 <span class="litit">b</span> 。也可以大小写混合，例如 <span class="litit">noready</span> 可以写成 <span class="litit">noReady</span> 。</p>
+          <p><br></p>
+          <p>4.关于属性的说明</p>
+          <table class="xtable xfirst">
+            <tr>
+              <td style="white-space:nowrap;">属性</td>
+              <td>说明</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">[必填]</td>
+              <td>如字面意思</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">[可选]</td>
+              <td>如字面意思</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">[默认:true]</td>
+              <td>默认值为 <span class="litit">true</span></td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">[默认:空]</td>
+              <td>默认值为 <span class="litit">空</span> 或者 <span class="litit">空字符</span> 或 <span class="litit">未定义</span></td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">[类型]</td>
+              <td>数据类型 (number, string, boolean, array, function, this)</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">[选值]</td>
+              <td>从文档中给出的值中选取一个填写</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">[说明]</td>
+              <td>额外的说明</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">[限制]</td>
+              <td>说明限制条件</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">( )</td>
+              <td>解释说明，例如：[默认:#ffffff(白色)]</td>
+            </tr>
+            <tr>
+              <td style="white-space:nowrap;">&lt; &gt;</td>
+              <td>不一定存在，例如：[默认:确定&lt;,取消&gt;]，表示有可能是 <span class="litit">确定</span> 或者 <span class="litit">确定,取消</span></td>
+            </tr>
+          </table>
+          <p><br></p>
+          <p>5.弹窗层按钮无回调函数时，点击按钮会关闭；面板菜单选项无回调函数时，点击选项不会有反应。</p>
+          <p><br></p>
+          <p>6.<span class="litit">win</span> 弹窗层和 <span class="litit">open</span> 页面层按下键盘的 <span class="litit">Esc</span> 键可关闭窗口。<span class="litit">win</span> 弹窗层如果只有一个 <span class="litit">btn1</span> 的回调按钮，那么按下回车会调用 <span class="litit">btn1</span> 的回调函数，具体在实际案例中体验一下。</p>
+          <p><br></p>
+          <p>7.IE 兼容至 IE10 ，IE10 以下的不进行兼容，以后也不会兼容！</p>
+        </div>
+      </div>
+
+      <div id="msg" class="maindiv">
+        <div class="page_tit">短消息 xtip.msg()</div>
+        <div class="page_tit3">短消息顾名思义，就是用来显示简短的文本消息的，PC 最多支持 <span>50</span> 个中文字符（带图标 <span>48</span> 个），移动端最多支持 <span>18</span> 个中文字符（带图标 <span>16</span> 个），更长的文本消息请用 <span>win</span> 弹窗层或 <span>open</span> 页面层实现</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" onclick="xtip.msg('这是一个短消息')">短消息</button>
+            <button class="xbutton" onclick="xtip.msg('The world!',{times:4})">停顿4秒</button>
+            <button class="xbutton" onclick="xtip.msg('顶部消息',{pos:'t'})">顶部消息</button>
+            <button class="xbutton" onclick="xtip.msg('底部消息',{pos:'b'})">底部消息</button>
+            <button class="xbutton" onclick="xtip.msg('带图标',{icon:'s'})">带图标</button>
+            <button class="xbutton" onclick="xtip.msg('白色风格',{icon:'e',type:'w'})">白色风格</button>
+            <button class="xbutton" onclick="xtip.msg('自定义图标',{icon:'css/img.png',type:'w'})">自定义图标</button>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;这是一个短消息&#39;)&quot;&gt;短消息&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;The&nbsp;world!&#39;,{times:4})&quot;&gt;停顿4秒&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;顶部消息&#39;,{pos:&#39;t&#39;})&quot;&gt;顶部消息&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;底部消息&#39;,{pos:&#39;b&#39;})&quot;&gt;底部消息&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;带图标&#39;,{icon:&#39;s&#39;})&quot;&gt;带图标&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;白色风格&#39;,{icon:&#39;e&#39;,type:&#39;w&#39;})&quot;&gt;白色风格&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;自定义图标&#39;,{icon:&#39;css/img.png&#39;,type:&#39;w&#39;})&quot;&gt;自定义图标&lt;/button&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="3">表达式：xtip.msg(<em>tip</em>, <em>config</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>tip</td>
+                    <td>消息内容</td>
+                    <td>[类型:string] [必填]</td>
+                  </tr>
+                  <tr>
+                    <td>config.times</td>
+                    <td>停顿秒数</td>
+                    <td>[类型:number] [可选] [默认:2]</td>
+                  </tr>
+                  <tr>
+                    <td>config.type</td>
+                    <td>风格</td>
+                    <td>
+                      <p>[类型:string] [可选] [默认:空] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">可选值</td><td>解释</td></tr>
+                        <tr><td><span>b</span> 或 <span>black</span></td><td>黑色 [默认]</td></tr>
+                        <tr><td><span>w</span> 或 <span>white</span></td><td>白色</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.pos</td>
+                    <td>位置</td>
+                    <td>
+                      <p>[类型:string] [可选] [默认:m(中间)] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">可选值</td><td>解释</td></tr>
+                        <tr><td><span>m</span> 或 <span>middle</span></td><td>中间 [默认]</td></tr>
+                        <tr><td><span>t</span> 或 <span>top</span></td><td>顶部</td></tr>
+                        <tr><td><span>b</span> 或 <span>bottom</span></td><td>底部</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.icon</td>
+                    <td>图标</td>
+                    <td>
+                      <p>[类型:string] [可选] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">固定可选值</td><td>解释</td></tr>
+                        <tr><td><span>s</span> 或 <span>success</span></td><td>成功</td></tr>
+                        <tr><td><span>e</span> 或 <span>error</span></td><td>失败</td></tr>
+                        <tr><td><span>w</span> 或 <span>warning</span></td><td>警告</td></tr>
+                        <tr><td><span>a</span> 或 <span>ask</span></td><td>询问</td></tr>
+                        <tr><td><span>h</span> 或 <span>hello</span></td><td>微笑</td></tr>
+                      </table><br>
+                      <p>或者</p><br>
+                      <p>[类型:string / array] [可选] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">自定义图片</td><td>解释</td></tr>
+                        <tr><td><span>string</span> 类型</td><td>图片路径，例如：<span>css/img.png</span></td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.zindex</td>
+                    <td>层叠顺序</td>
+                    <td>[类型:number] [可选] [默认:99999]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+           <div class="para_app">查看参数</div>
+         </div>
+        </div>
+      </div><!--maindiv-->
+      
+      <div id="danmu" class="maindiv">
+        <div class="page_tit">弹幕 xtip.danmu()</div>
+        <div class="page_tit3">弹幕是我在所有层中唯一带着好玩、和实验性质写的，在实际项目中用到的可能性不高，所以在给定参数上不会纠结太多，例如字体大小、弹幕速度之类的。动画改用 css3 实现，性能大幅度提升。弹幕的分布区间是从顶部 10 像素 - 页面高度的 65% 的位置</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" onclick="xtip.danmu('弹幕填充',{light:true,type:'b',icon:'w'})">弹幕</button>
+            <button class="xbutton" onclick="danmulist2();this.innerHTML='多点几次测试性能'">前方高能</button>
+            <button class="xbutton" onclick="danmuclose()">关闭弹幕</button>
+            <script>
+            function danmu()
+            {
+              icon = arrforone(['','s','e','w','a','h','css/img.png']);
+              type = arrforone(['w','b']);
+
+              tip = '随机弹幕'+randbix(1,10);
+              xtip.danmu(tip,{
+                icon: icon,
+                type: type,
+              });
+            }
+
+            //数组随机取值
+            function arrforone(items)
+            {
+              var item = items[Math.floor(Math.random()*items.length)];
+              return item;
+            }
+
+            var dm;
+            function danmulist2()
+            {
+              danmu();
+              dm = setInterval(function(){
+                danmu();
+              },3*200);
+              return dm;
+            }
+
+            function danmuclose()
+            {
+              if(dm){
+                clearInterval(dm);
+                dm = null;
+              }
+            }
+
+            function randomNum(n,m)
+            {
+              var rander = Math.round(Math.random()*(m-n))+n;
+              return rander;
+            }
+
+            //随机小数点
+            function randbix(n,m)
+            {
+              bix = Math.random().toFixed(2);
+              num = Number(randomNum(n,m)) + Number(bix);
+              r2 = randomNum(2,10);
+              return num.toFixed(r2);
+            }
+            </script>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.danmu(&#39;弹幕填充&#39;,{light:true,type:&#39;b&#39;,icon:&#39;w&#39;})&quot;&gt;弹幕&lt;/button&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="3">表达式：xtip.danmu(<em>tip</em>, <em>config</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>tip</td>
+                    <td>消息内容</td>
+                    <td>[类型:string] [必填]</td>
+                  </tr>
+                  <tr>
+                    <td>config.type</td>
+                    <td>风格</td>
+                    <td>
+                      <p>[类型:string] [可选] [默认:空] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">可选值</td><td>解释</td></tr>
+                        <tr><td><span>b</span> 或 <span>black</span></td><td>黑色 [默认]</td></tr>
+                        <tr><td><span>w</span> 或 <span>white</span></td><td>白色</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.icon</td>
+                    <td>图标</td>
+                    <td>
+                      <p>[类型:string] [可选] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">固定可选值</td><td>解释</td></tr>
+                        <tr><td><span>s</span> 或 <span>success</span></td><td>成功</td></tr>
+                        <tr><td><span>e</span> 或 <span>error</span></td><td>失败</td></tr>
+                        <tr><td><span>w</span> 或 <span>warning</span></td><td>警告</td></tr>
+                        <tr><td><span>a</span> 或 <span>ask</span></td><td>询问</td></tr>
+                        <tr><td><span>h</span> 或 <span>hello</span></td><td>微笑</td></tr>
+                      </table><br>
+                      <p>或者</p><br>
+                      <p>[类型:string / array] [可选] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">自定义图片</td><td>解释</td></tr>
+                        <tr><td><span>string</span> 类型</td><td>图片路径，例如：<span>css/img.png</span></td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.light</td>
+                    <td>是否高亮显示</td>
+                    <td>[类型:boolean] [可选] [默认:false] [限制:弹幕多于1条时生效]</td>
+                  </tr>
+                  <tr>
+                    <td>config.zindex</td>
+                    <td>层叠顺序</td>
+                    <td>[类型:number] [可选] [默认:99999]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div id="tips" class="maindiv">
+        <div class="page_tit">气泡 xtip.tips()</div>
+        <div class="page_tit3">气泡层一个关联元素只能有一个实例。可应用于对表单提交验证的提示等。</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" id="tipsxf" disabled="disabled">被关联元素</button><br><br>
+            <button class="xbutton" onclick="xtip.tips('上提示',this,{pos:'t',bgcolor:'white'})">上</button>
+            <button class="xbutton" onclick="xtip.tips('下提示',this,{pos:'b',bgcolor:'#2b84d0'})">下</button>
+            <button class="xbutton" onclick="xtip.tips('左提示',this,{pos:'l',bgcolor:'#37b72c'})">左</button>
+            <button class="xbutton" onclick="xtip.tips('右提示',this,{pos:'r',bgcolor:'#f89310'})">右</button>
+            <button class="xbutton" onclick="xtip_tips()">关联元素id</button>
+
+            <script type="text/javascript">
+            function xtip_tips()
+            {
+              xtip.tips('关联元素，长文本长文本长文本长文本，长文本长文本长文本。长文本长文本长文本长文本。','tipsxf',{
+                bgcolor: 'rgb(255,255,255)',
+                times: 3,
+                pos: 't',
+              });
+            }
+            </script>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;id=&quot;tipsxf&quot;&nbsp;disabled=&quot;disabled&quot;&gt;被关联元素&lt;/button&gt;&lt;br&gt;&lt;br&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;上提示&#39;,this,{pos:&#39;t&#39;,bgcolor:&#39;white&#39;})&quot;&gt;上&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;下提示&#39;,this,{pos:&#39;b&#39;,bgcolor:&#39;#2b84d0&#39;})&quot;&gt;下&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;左提示&#39;,this,{pos:&#39;l&#39;,bgcolor:&#39;#37b72c&#39;})&quot;&gt;左&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;右提示&#39;,this,{pos:&#39;r&#39;,bgcolor:&#39;#f89310&#39;})&quot;&gt;右&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips1()&quot;&gt;关联元素id&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
+              <li><span>function&nbsp;xtiper_tips1()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtiper_tips(&#39;关联元素，长文本长文本长文本长文本，长文本长文本长文本。&#39;,&#39;tipsxf&#39;,{</span></li>
+              <li class="level3"><span>bgcolor:&nbsp;&#39;rgb(255,255,255)&#39;,</span></li>
+              <li class="level3"><span>times:&nbsp;3,</span></li>
+              <li class="level3"><span>pos:&nbsp;&#39;t&#39;,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="3">表达式：xtip.tips(<em>tip</em>, <em>element</em>, <em>config</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>tip</td>
+                    <td>消息内容</td>
+                    <td>[类型:string] [必填]</td>
+                  </tr>
+                  <tr>
+                    <td>element</td>
+                    <td>关联元素</td>
+                    <td>
+                      <p>[类型:string / this] [必填] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">可选值</td><td>解释</td></tr>
+                        <tr><td>(关联元素id)</td><td>例如：<span>#id</span> (#号可以省略)，不可以使用 <span>.class</span> 类名选择器</td></tr>
+                        <tr><td><span>this</span></td><td>元素本身</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.bgcolor</td>
+                    <td>背景颜色</td>
+                    <td>[类型:string] [可选] [默认:#000000(黑色)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.color</td>
+                    <td>字体颜色</td>
+                    <td>[类型:string] [可选] [默认:#ffffff(白色)]<br>[说明:当背景色为白色时，字体颜色自动变成黑色，也可以手动设置]</td>
+                  </tr>
+                  <tr>
+                    <td>config.times</td>
+                    <td>停顿秒数</td>
+                    <td>[类型:number] [可选] [默认:2]</td>
+                  </tr>
+                  <tr>
+                    <td>config.pos</td>
+                    <td>方向</td>
+                    <td>
+                      <p>[类型:string] [可选] [默认:r] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">可选值</td><td>解释</td></tr>
+                        <tr><td><span>t</span> 或 <span>top</span></td><td>上</td></tr>
+                        <tr><td><span>b</span> 或 <span>bottom</span></td><td>下</td></tr>
+                        <tr><td><span>l</span> 或 <span>left</span></td><td>左</td></tr>
+                        <tr><td><span>r</span> 或 <span>right</span></td><td>右 [默认]</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.zindex</td>
+                    <td>层叠顺序</td>
+                    <td>[类型:number] [可选] [默认:99999]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div id="alert" class="maindiv">
+        <div class="page_tit">通知 xtip.alert()</div>
+        <div class="page_tit3 hide_1200" style="cursor:pointer;" onclick="diff();">通知 <span>xtip.alert()</span> 和 反馈 <span>xtip.confirm</span> 的区别是什么？</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" onclick="xtip.alert('通知')">通知</button>
+            <button class="xbutton" onclick="xtip.alert('3秒后自动消失','e',{times:3,title:'Are you sure?',btn:'Sure'})">3秒后自动消失</button>
+            <button class="xbutton" onclick="xtip.alert('无遮罩','w',{shade:false})">无遮罩</button><br><br>
+
+            <button class="xbutton" onclick="xtip.alert('无图标')">无图标</button>
+            <button class="xbutton" onclick="xtip.alert('成功','s')">成功</button>
+            <button class="xbutton" onclick="xtip.alert('失败','e')">失败</button>
+            <button class="xbutton" onclick="xtip.alert('警告','w')">警告</button>
+            <button class="xbutton" onclick="xtip.alert('询问','a')">询问</button>
+            <button class="xbutton" onclick="xtip.alert('微笑','h')">微笑</button>
+            <button class="xbutton" onclick="xtip.alert('自定义图标',['css/img.png','black'])">自定义图标</button>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;通知&#39;)&quot;&gt;通知&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;3秒后自动消失&#39;,&#39;e&#39;,{times:3,title:&#39;Are&nbsp;you&nbsp;sure?&#39;,btn:&#39;Sure&#39;})&quot;&gt;3秒后自动消失&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;无遮罩&#39;,&#39;w&#39;,{shade:false})&quot;&gt;无遮罩&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;无图标&#39;)&quot;&gt;无图标&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;成功&#39;,&#39;s&#39;)&quot;&gt;成功&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;失败&#39;,&#39;e&#39;)&quot;&gt;失败&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;警告&#39;,&#39;w&#39;)&quot;&gt;警告&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;询问&#39;,&#39;a&#39;)&quot;&gt;询问&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;微笑&#39;,&#39;h&#39;)&quot;&gt;微笑&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;自定义图标&#39;,[&#39;css/img.png&#39;,&#39;black&#39;])&quot;&gt;自定义图标&lt;/button&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="3">表达式：xtip.alert(<em>tip</em>, <em>icon</em>, <em>config</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>tip</td>
+                    <td>消息内容</td>
+                    <td>[类型:string] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>icon</td>
+                    <td>图标</td>
+                    <td>
+                      <p>[类型:string] [可选] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">固定可选值</td><td>解释</td></tr>
+                        <tr><td><span>s</span> 或 <span>success</span></td><td>成功</td></tr>
+                        <tr><td><span>e</span> 或 <span>error</span></td><td>失败</td></tr>
+                        <tr><td><span>w</span> 或 <span>warning</span></td><td>警告</td></tr>
+                        <tr><td><span>a</span> 或 <span>ask</span></td><td>询问</td></tr>
+                        <tr><td><span>h</span> 或 <span>hello</span></td><td>微笑</td></tr>
+                      </table><br>
+                      <p>或者</p><br>
+                      <p>[类型:string / array] [可选] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">自定义图片</td><td>解释</td></tr>
+                        <tr><td><span>string</span> 类型</td><td>图片路径，例如：<span>css/img.png</span></td></tr>
+                        <tr><td><span>array</span> 类型</td><td>图片路径 + 按钮主颜色，例如：<span>['css/img.png', '#000']</span></td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.title</td>
+                    <td>弹层标题</td>
+                    <td>[类型:string] [可选] [默认:提示]</td>
+                  </tr>
+                  <tr>
+                    <td>config.btn</td>
+                    <td>按钮</td>
+                    <td>[类型:string / array] [可选] [默认:确定]</td>
+                  </tr>
+                  <tr>
+                    <td>config.times</td>
+                    <td>几秒后自动关闭</td>
+                    <td>[类型:number] [可选] [默认:0(不自动关闭)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.shade</td>
+                    <td>是否开启遮罩</td>
+                    <td>[类型:boolean] [可选] [默认:true(开启)]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div id="confirm" class="maindiv">
+        <div class="page_tit">反馈 xtip.confirm()</div>
+        <div class="page_tit3 hide_1200" style="cursor:pointer;" onclick="diff()">通知 <span>xtip.alert()</span> 和 反馈 <span>xtip.confirm</span> 的区别是什么？</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" onclick="delmsg(1)">删除</button>
+            <button class="xbutton" onclick="xtip.confirm('确认删除吗？','',{title:'This is English',shade:false,btn:['Yes','No']});">无遮罩</button><br><br>
+
+            <button class="xbutton" onclick="xtip.confirm('成功','',{icon:'s'})">成功</button>
+            <button class="xbutton" onclick="xtip.confirm('失败','',{icon:'e'})">失败</button>
+            <button class="xbutton" onclick="xtip.confirm('警告','',{icon:'w'})">警告</button>
+            <button class="xbutton" onclick="xtip.confirm('询问','',{icon:'a'})">询问</button>
+            <button class="xbutton" onclick="xtip.confirm('微笑','',{icon:'h'})">微笑</button>
+            <button class="xbutton" onclick="xtip.confirm('自定义图标','',{icon:['css/img.png','#1dbbae']})">自定义图标</button>
+
+            <script>
+            //一般可以自定义一个函数用来传参数
+            function delmsg(id)
+            {
+              xtip.confirm('确认删除吗？',function(){
+                xtip.msg('执行你的删除代码，要删除的id：'+id);
+              });
+            }
+            </script>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;delmsg(1)&quot;&gt;删除&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;确认删除吗？&#39;,&#39;&#39;,{title:&#39;This&nbsp;is&nbsp;English&#39;,shade:false,btn:[&#39;Yes&#39;,&#39;No&#39;]});&quot;&gt;无遮罩&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;成功&#39;,&#39;&#39;,{icon:&#39;s&#39;})&quot;&gt;成功&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;失败&#39;,&#39;&#39;,{icon:&#39;e&#39;})&quot;&gt;失败&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;警告&#39;,&#39;&#39;,{icon:&#39;w&#39;})&quot;&gt;警告&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;询问&#39;,&#39;&#39;,{icon:&#39;a&#39;})&quot;&gt;询问&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;微笑&#39;,&#39;&#39;,{icon:&#39;h&#39;})&quot;&gt;微笑&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;自定义图标&#39;,&#39;&#39;,{icon:[&#39;css/img.png&#39;,&#39;#1dbbae&#39;]})&quot;&gt;自定义图标&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&gt;</span></li>
+              <li><span>//一般可以自定义一个函数用来传参数</span></li>
+              <li><span>function&nbsp;delmsg(id)</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.confirm(&#39;确认删除吗？&#39;,function(){</span></li>
+              <li class="level3"><span>xtip.msg(&#39;执行你的删除代码，要删除的id：&#39;+id);</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="3">表达式：xtip.confirm(<em>tip</em>, <em>myfun</em>, <em>config</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>tip</td>
+                    <td>消息内容</td>
+                    <td>[类型:string] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>myfun</td>
+                    <td>确定后的回调函数</td>
+                    <td>[类型:function] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>config.icon</td>
+                    <td>图标</td>
+                    <td>
+                      <p>[类型:string] [可选] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">固定可选值</td><td>解释</td></tr>
+                        <tr><td><span>s</span> 或 <span>success</span></td><td>成功</td></tr>
+                        <tr><td><span>e</span> 或 <span>error</span></td><td>失败</td></tr>
+                        <tr><td><span>w</span> 或 <span>warning</span></td><td>警告</td></tr>
+                        <tr><td><span>a</span> 或 <span>ask</span></td><td>询问</td></tr>
+                        <tr><td><span>h</span> 或 <span>hello</span></td><td>微笑</td></tr>
+                      </table><br>
+                      <p>或者</p><br>
+                      <p>[类型:string / array] [可选] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">自定义图片</td><td>解释</td></tr>
+                        <tr><td><span>string</span> 类型</td><td>图片路径，例如：<span>css/img.png</span></td></tr>
+                        <tr><td><span>array</span> 类型</td><td>图片路径 + 按钮主颜色，例如：<span>['css/img.png', '#000']</span></td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.title</td>
+                    <td>弹层标题</td>
+                    <td>[类型:string] [可选] [默认:提示]</td>
+                  </tr>
+                  <tr>
+                    <td>config.btn</td>
+                    <td>按钮</td>
+                    <td>[类型:array] [可选] [默认:确定,取消]</td>
+                  </tr>
+                  <tr>
+                    <td>config.shade</td>
+                    <td>是否开启遮罩</td>
+                    <td>[类型:boolean] [可选] [默认:true(开启)]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div id="alco">
+        <!-- <div style="padding:15px;">
+        <div class="page_tit3">
+          <p><strong>通知：</strong>把消息告诉你，你不需要对此消息进行后续的操作。</p>
+          <p><br></p>
+          <p><strong>反馈：</strong>把消息告诉你，需要你并进行后续的确认、反馈操作。</p>
+          <p><br></p>
+          <p>注意：<span>xtip.alert()</span> 和 <span>xtip.confirm()</span> 实际上都是调用 <span>xtip.win()</span> 方法，是 <span>xtip.win()</span> 的简化版。因在实际应用中并不需要输入太多参数，就能满足大部分需求，所以刻意简化了输入参数，需要更多自定义设置请使用 <span>xtip.win()</span> 。</p>
+          <p><br></p>
+          <table class="xtable">
+            <tr>
+              <td width="70"><strong>type 类型</strong></td>
+              <td width="120"><strong>按钮</strong></td>
+              <td width="260"><strong>默认图标</strong></td>
+              <td width="110"><strong>参数顺序</strong></td>
+              <td><strong>几秒后自动消失</strong></td>
+              <td><strong>回调函数</strong></td>
+            </tr>
+            <tr>
+              <td>alert</td>
+              <td>
+                <button class="xbutton xlit">确定</button>
+              </td>
+              <td><p>无</p><br><p>说明：由于无法判断通知内容的性质（成功、失败或其他），一般需要手动进行图标的设置，所以图标的位置放置靠前的第2位</p></td>
+              <td>
+                <p>1.提示内容</p>
+                <p>2.图标</p>
+                <p>3.其他参数</p>
+              </td>
+              <td>默认不会自动消失，也可以设置几秒后自动消失</td>
+              <td>所有按钮都没有回调函数</td>
+            </tr>
+            <tr>
+              <td>confirm</td>
+              <td>
+                <button class="xbutton xlit">确定</button> <button class="xbutton xlit">取消</button>
+              </td>
+              <td>
+                <p>warning(警告)</p><br>
+                <p>说明：反馈的内容性质一般接近于警告、询问，相对来说图标就显得并不那么重要，所以把更为重要的回调函数放在参数的第2位</p>
+              </td>
+              <td>
+                <p>1.提示内容</p>
+                <p>2.回调函数</p>
+                <p>3.其他参数</p>
+              </td>
+              <td>不会自动消失</td>
+              <td>只有一个回调函数：btn1，绑定在确定按钮</td>
+            </tr>
+          </table>
+        </div></div>-->
+      </div>
+
+      <div id="win" class="maindiv">
+        <div class="page_tit">弹窗层 xtip.win()</div>
+        <div class="page_tit3">弹窗层是使用率最多的弹层类型，具体说明请点击下面按钮</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" onclick="xtip_win()">弹窗层是功能更强大的【反馈】</button>
+            <button class="xbutton" onclick="xtip_win2()">自定义图标</button>
+
+            <script>
+            function xtip_win()
+            {
+              xtip.win({
+                type: 'confirm', //alert 或 confirm
+                btn: ['蕾米莉亚','蕾姆','拉姆','斯巴鲁'],
+                tip: '【通知】和【反馈】都属于【弹窗层】的子类，与【通知】和【反馈】相比，【弹窗层】功能更强大：<br><br>1.可设定最多4个按钮<br>2.可为所有按钮设置回调函数<br>3.如果按钮2、3、4如果没有设置回调函数，会显示浅色的按钮<br>4.可显示最小化<br>5.可设置点击遮罩不关闭<br>6.可锁定滚动条<br>7.可自定义标题、宽度、层叠顺序',
+                icon: 'success',
+                title: "弹窗层的功能",
+                min: true,
+                width: '600px',
+                maxWidth: '100%',
+                shade: false,
+                shadeClose: false,
+                lock: false,
+                btn1: function(){
+                  xtip.msg('我爱蕾米莉亚');
+                },
+                btn2: function(){
+                  xtip.msg('我爱蕾姆');
+                },
+                btn3: function(){
+                  xtip.msg('我爱拉姆');
+                },
+                zindex: 99999,
+              });
+            }
+
+            function xtip_win2()
+            {
+              xtip.win({
+                tip: '自定义图标',
+                icon: ['css/img.png','#782fbd'],
+                title: '自定义图标',
+                btn: ['A','B','C','D'],
+                btn1: function(){
+                  xtip.msg('我爱蕾米莉亚');
+                },
+                btn2: function(){
+                  xtip.msg('我爱蕾姆');
+                },
+                btn3: function(){
+                  xtip.msg('我爱拉姆');
+                },
+              });
+            }
+            </script>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_win()&quot;&gt;弹窗层是功能更强大的【反馈】&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_win2()&quot;&gt;自定义图标&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&gt;</span></li>
+              <li><span>function&nbsp;xtip_win()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.win({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;confirm&#39;,&nbsp;//alert&nbsp;或&nbsp;confirm</span></li>
+              <li class="level3"><span>btn:&nbsp;[&#39;蕾米莉亚&#39;,&#39;蕾姆&#39;,&#39;拉姆&#39;,&#39;斯巴鲁&#39;],</span></li>
+              <li class="level3"><span>tip:&nbsp;&#39;【通知】和【反馈】都属于【弹窗层】的子类，与【通知】和【反馈】相比，【弹窗层】功能更强大：&lt;br&gt;&lt;br&gt;1.可设定最多4个按钮&lt;br&gt;2.可为所有按钮设置回调函数&lt;br&gt;3.如果按钮2、3、4如果没有设置回调函数，会显示浅色的按钮&lt;br&gt;4.可显示最小化&lt;br&gt;5.可设置点击遮罩不关闭&lt;br&gt;6.可锁定滚动条&lt;br&gt;7.可自定义标题、宽度、层叠顺序&#39;,</span></li>
+              <li class="level3"><span>icon:&nbsp;&#39;success&#39;,</span></li>
+              <li class="level3"><span>title:&nbsp;&quot;弹窗层的功能&quot;,</span></li>
+              <li class="level3"><span>min:&nbsp;true,</span></li>
+              <li class="level3"><span>width:&nbsp;&#39;600px&#39;,</span></li>
+              <li class="level3"><span>maxWidth:&nbsp;&#39;100%&#39;,</span></li>
+              <li class="level3"><span>shade:&nbsp;false,</span></li>
+              <li class="level3"><span>shadeClose:&nbsp;false,</span></li>
+              <li class="level3"><span>lock:&nbsp;false,</span></li>
+              <li class="level3"><span>btn1:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;我爱蕾米莉亚&#39;);</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level3"><span>btn2:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;我爱蕾姆&#39;);</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level3"><span>btn3:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;我爱拉姆&#39;);</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level3"><span>zindex:&nbsp;99999,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span></span></li>
+              <li><span>function&nbsp;xtip_win2()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.win({</span></li>
+              <li class="level3"><span>tip:&nbsp;&#39;自定义图标&#39;,</span></li>
+              <li class="level3"><span>icon:&nbsp;[&#39;css/img.png&#39;,&#39;#782fbd&#39;],</span></li>
+              <li class="level3"><span>title:&nbsp;&#39;自定义图标&#39;,</span></li>
+              <li class="level3"><span>btn:&nbsp;[&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;],</span></li>
+              <li class="level3"><span>btn1:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;我爱蕾米莉亚&#39;);</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level3"><span>btn2:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;我爱蕾姆&#39;);</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level3"><span>btn3:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;我爱拉姆&#39;);</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="3">表达式：xtip.win(<em>config</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>config.type</td>
+                    <td>弹窗类型</td>
+                    <td>
+                      <p>[类型:string] [可选] [选值] [默认:confirm]</p><br>
+                      <table>
+                        <tr><td width="120">可选值</td><td>解释</td></tr>
+                        <tr><td><span>a</span> 或 <span>alert</span></td><td>通知 (无回调函数，无取消按钮)</td></tr>
+                        <tr><td><span>c</span> 或 <span>confirm</span></td><td>反馈 [默认]</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.tip</td>
+                    <td>消息内容</td>
+                    <td>[类型:string] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>config.icon</td>
+                    <td>图标</td>
+                    <td>
+                      <p>[类型:string] [可选] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">固定可选值</td><td>解释</td></tr>
+                        <tr><td><span>s</span> 或 <span>success</span></td><td>成功</td></tr>
+                        <tr><td><span>e</span> 或 <span>error</span></td><td>失败</td></tr>
+                        <tr><td><span>w</span> 或 <span>warning</span></td><td>警告</td></tr>
+                        <tr><td><span>a</span> 或 <span>ask</span></td><td>询问</td></tr>
+                        <tr><td><span>h</span> 或 <span>hello</span></td><td>微笑</td></tr>
+                      </table><br>
+                      <p>或者</p><br>
+                      <p>[类型:string / array] [可选] [选值]</p><br>
+                      <table>
+                        <tr><td width="120">自定义图片</td><td>解释</td></tr>
+                        <tr><td><span>string</span> 类型</td><td>图片路径，例如：<span>css/img.png</span></td></tr>
+                        <tr><td><span>array</span> 类型</td><td>图片路径 + 按钮主颜色，例如：<span>['css/img.png', '#000']</span></td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.times</td>
+                    <td>几秒后自动关闭</td>
+                    <td>[类型:number] [可选] [默认:0(不自动关闭)] [限制:<span>alert</span> 类型才会生效]</td>
+                  </tr>
+                  <tr>
+                    <td>config.title</td>
+                    <td>弹层标题</td>
+                    <td>[类型:string] [可选] [默认:提示]</td>
+                  </tr>
+                  <tr>
+                    <td>config.width</td>
+                    <td>宽度</td>
+                    <td>[类型:string] [可选] [默认:300px]</td>
+                  </tr>
+                  <tr>
+                    <td>config.maxWidth</td>
+                    <td>最大宽度</td>
+                    <td>[类型:string] [可选] [默认:无] [限制:当 <span>width</span> 为 <span>px</span> 类型且 <span>maxWidth</span> 为 <span>%</span> 类型时才生效]</td>
+                  </tr>
+                  <tr>
+                    <td>config.shade</td>
+                    <td>是否开启遮罩</td>
+                    <td>[类型:boolean] [可选] [默认:true(开启)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.shadeClose</td>
+                    <td>是否开启点击遮罩关闭</td>
+                    <td>[类型:boolean] [可选] [默认:true(开启)] [限制:开启遮罩时才会生效]</td>
+                  </tr>
+                  <tr>
+                    <td>config.end</td>
+                    <td>关闭后的回调函数</td>
+                    <td>[类型:function] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>config.lock</td>
+                    <td>是否锁定滚动条</td>
+                    <td>[类型:boolean] [可选] [默认:false(不锁定)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.btn</td>
+                    <td>按钮</td>
+                    <td>[类型:array] [可选] [默认:确定&lt;,取消&gt;] [限制:最多只能有4个按钮]</td>
+                  </tr>
+                  <tr>
+                    <td>config.btn[1-4]</td>
+                    <td>按钮[1-4]的回调函数</td>
+                    <td>[类型:function] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>config.min</td>
+                    <td>是否开启最小化按钮</td>
+                    <td>[类型:boolean] [可选] [默认:false(不开启)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.zindex</td>
+                    <td>层叠顺序</td>
+                    <td>[类型:number] [可选] [默认:99999]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div id="photo" class="maindiv hide_app">
+        <div class="page_tit">相册层 xtip.photo()</div>
+        <div class="page_tit3">实际是调用 <span>xtip.open</span> 层，简化了参数。高度默认自适应，也可以固定高度。</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" onclick="xtip.photo('img1')">相册层</button>
+            <button class="xbutton" onclick="xtip.photo('img1',{height:'500px',title:'固定高度'})">固定高度</button>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.photo(&#39;img1&#39;)&quot;&gt;相册层&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.photo(&#39;img1&#39;,{height:&#39;500px&#39;,title:&#39;固定高度&#39;})&quot;&gt;固定高度&lt;/button&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="5">表达式：xtip.photo(<em>content</em>, <em>config</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>content</td>
+                    <td>相册组名称</td>
+                    <td>[类型:string] [必填]</td>
+                  </tr>
+                  <tr>
+                    <td>config.title</td>
+                    <td>弹层标题</td>
+                    <td>[类型:string] [可选] [默认:无]</td>
+                  </tr>
+                  <tr>
+                    <td>config.width</td>
+                    <td>宽度</td>
+                    <td>[类型:string] [可选] [默认:600px]</td>
+                  </tr>
+                  <tr>
+                    <td>config.height</td>
+                    <td>高度</td>
+                    <td>[类型:string] [可选] [默认:400px]</td>
+                  </tr>
+                  <tr>
+                    <td>config.index</td>
+                    <td>调用时显示第几张图片</td>
+                    <td>[类型:number] [可选] [默认:1]</td>
+                  </tr>
+                  <tr>
+                    <td>config.app</td>
+                    <td>是否开启APP模式</td>
+                    <td>[类型:boolean] [可选] [默认:false (不开启)] [说明:也可以直接调用<span>photoAPP()</span>]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div id="photoapp" class="maindiv">
+        <div class="page_tit">移动端相册层 xtip.photoApp()</div>
+        <div class="page_tit3">实际是调用 <span>xtip.open</span> 层，简化了参数，滑动下拉移动一定距离或者点击空白处可以关闭。请在移动端中打开。</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" onclick="xtip.photoApp('img1')">移动端相册层</button>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.photoApp(&#39;img1&#39;)&quot;&gt;移动端相册层&lt;/button&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="5">表达式：xtip.photoApp(<em>content</em>, <em>index</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>content</td>
+                    <td>相册组名称</td>
+                    <td>[类型:string] [必填]</td>
+                  </tr>
+                  <tr>
+                    <td>index</td>
+                    <td>显示第几张图片</td>
+                    <td>[类型:number] [可选] [默认:1]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div id="open" class="maindiv">
+        <div class="page_tit">页面层 xtip.open() <a href="#open_para"><span>查看参数</span></a></div>
+        <div class="table_row">
+          <div class="page_tit2">【ready类型】已存在元素</div>
+          <div class="page_tit3"><span>ready</span> 类型会读取整个元素的标签 (outerHTML)，并且会过滤 <span>id</span> 属性防止冲突，过滤最外层标签隐藏属性 <span>display:none</span></div>
+          <div class="example">
+            <div id="tip_content1" class="tip_content1"><div id="myclass" class="myclass" style="background-color:#08c; color:#fff;"><span style="display:none;">隐藏</span>这是一个在页面上已存在的元素。内容背景色可以自定义</div></div><br>
+            <button class="xbutton" onclick="xtip_open1()">已存在的元素 (outerHTML)</button>
+            <button class="xbutton" onclick="xtip_open1_2()">APP模式</button>
+
+            <script type="text/javascript">
+            function xtip_open1()
+            {
+              xtip.open({
+                type: 'ready',
+                content: '.tip_content1',
+                title: '【ready类型】',
+                width: '700px',
+                height: '400px',
+                maxWidth: '100%',
+                lock: true,
+                move:false,
+                max: true,
+                bgcolor: '#000',
+              });
+            }
+
+            function xtip_open1_2()
+            {
+              xtip.open({
+                type: 'ready',
+                content: '.tip_content1',
+                title: '【ready类型】',
+                bgcolor: '#000',
+                height: '400px',
+                app: true,
+              });
+            }
+            </script>
+          </div>
+          <div class="pre">
+            <ol>
+              <li><span>&lt;div&nbsp;id=&quot;tip_content1&quot;&nbsp;class=&quot;tip_content1&quot;&gt;&lt;div&nbsp;id=&quot;myclass&quot;&nbsp;class=&quot;myclass&quot;&nbsp;style=&quot;background-color:#08c;&nbsp;color:#fff;&quot;&gt;&lt;span&nbsp;style=&quot;display:none;&quot;&gt;隐藏&lt;/span&gt;这是一个在页面上已存在的元素。内容背景色可以自定义&lt;/div&gt;&lt;/div&gt;&lt;br&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_open1()&quot;&gt;已存在的元素&nbsp;(outerHTML)&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_open1_2()&quot;&gt;APP模式&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
+              <li><span>function&nbsp;xtip_open1()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.open({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;ready&#39;,</span></li>
+              <li class="level3"><span>content:&nbsp;&#39;.tip_content1&#39;,</span></li>
+              <li class="level3"><span>title:&nbsp;&#39;【ready类型】&#39;,</span></li>
+              <li class="level3"><span>width:&nbsp;&#39;700px&#39;,</span></li>
+              <li class="level3"><span>height:&nbsp;&#39;400px&#39;,</span></li>
+              <li class="level3"><span>maxWidth:&nbsp;&#39;100%&#39;,</span></li>
+              <li class="level3"><span>lock:&nbsp;true,</span></li>
+              <li class="level3"><span>move:false,</span></li>
+              <li class="level3"><span>max:&nbsp;true,</span></li>
+              <li class="level3"><span>bgcolor:&nbsp;&#39;#000&#39;,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span></span></li>
+              <li><span>function&nbsp;xtip_open1_2()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.open({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;ready&#39;,</span></li>
+              <li class="level3"><span>content:&nbsp;&#39;.tip_content1&#39;,</span></li>
+              <li class="level3"><span>title:&nbsp;&#39;【ready类型】&#39;,</span></li>
+              <li class="level3"><span>bgcolor:&nbsp;&#39;#000&#39;,</span></li>
+              <li class="level3"><span>height:&nbsp;&#39;400px&#39;,</span></li>
+              <li class="level3"><span>app:&nbsp;true,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div>
+        </div>
+
+        <div class="table_row">
+          <div class="page_tit2">【noready类型】注释元素</div>
+          <div class="page_tit3">有些时候你想让一些元素不要在页面打开的时候就显示，而是以代码注释的方式先隐藏起来 (就像这样：<span>&lt;!-- &lt;div&gt;内容&lt;/div&gt; --&gt;</span>)，在需要的时候才进行显示，这种时候就可以用 <span>noready</span> 类型。好处是不需要用 js 拼接一大段 html 代码，调试时只需要把前面的 <span>&lt;--</span> 暂时删去即可。<strong>注意别让其他开发人员误认为是无用注释代码删去！</strong></div>
+          <div class="example">
+            <div id="tip_content2">
+              <!-- <div class="loginbox">
+                  <strong>实例：一个简单的登录框</strong><br><br>
+                  <div><input type="text" class="xinput xful" placeholder="登录名" /></div>
+                  <div><input type="password" class="xinput xful" placeholder="密码" /></div>
+                  <div><button class="xbutton xful xblue">登录</button></div>
+                </div>
+              </div> -->
+            </div>
+            <button class="xbutton" onclick="xtip_open2()">注释元素 (innerHTML)</button>
+            <button class="xbutton" onclick="xtip_open2_2()">APP模式</button>
+
+            <script type="text/javascript">
+            function xtip_open2()
+            {
+              xtip.open({
+                type: 'noready',
+                content: '#tip_content2',
+                title: '【noready类型】',
+                width: '320px',
+                height: '360px',
+                min: true,
+                shade: false,
+              });
+            }
+
+            function xtip_open2_2()
+            {
+              xtip.open({
+                type: 'noready',
+                content: '#tip_content2',
+                app: true,
+              });
+            }
+            </script>
+          </div>
+          <div class="pre">
+            <ol>
+              <li><span>&lt;div&nbsp;id=&quot;tip_content2&quot;&gt;</span></li>
+              <li class="level2"><span>&lt;!--&nbsp;&lt;div&nbsp;class=&quot;loginbox&quot;&gt;</span></li>
+              <li class="level4"><span>&lt;strong&gt;实例：一个简单的登录框&lt;/strong&gt;&lt;br&gt;&lt;br&gt;</span></li>
+              <li class="level4"><span>&lt;div&gt;&lt;input&nbsp;type=&quot;text&quot;&nbsp;class=&quot;xinput&nbsp;xful&quot;&nbsp;placeholder=&quot;登录名&quot;&nbsp;/&gt;&lt;/div&gt;</span></li>
+              <li class="level4"><span>&lt;div&gt;&lt;input&nbsp;type=&quot;password&quot;&nbsp;class=&quot;xinput&nbsp;xful&quot;&nbsp;placeholder=&quot;密码&quot;&nbsp;/&gt;&lt;/div&gt;</span></li>
+              <li class="level4"><span>&lt;div&gt;&lt;button&nbsp;class=&quot;xbutton&nbsp;xful&nbsp;xblue&quot;&gt;登录&lt;/button&gt;&lt;/div&gt;</span></li>
+              <li class="level3"><span>&lt;/div&gt;</span></li>
+              <li class="level2"><span>&lt;/div&gt;&nbsp;--&gt;</span></li>
+              <li><span>&lt;/div&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_open2()&quot;&gt;注释元素&nbsp;(innerHTML)&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_open2_2()&quot;&gt;APP模式&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
+              <li><span>function&nbsp;xtip_open2()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.open({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;noready&#39;,</span></li>
+              <li class="level3"><span>content:&nbsp;&#39;#tip_content2&#39;,</span></li>
+              <li class="level3"><span>title:&nbsp;&#39;【noready类型】&#39;,</span></li>
+              <li class="level3"><span>width:&nbsp;&#39;320px&#39;,</span></li>
+              <li class="level3"><span>height:&nbsp;&#39;360px&#39;,</span></li>
+              <li class="level3"><span>min:&nbsp;true,</span></li>
+              <li class="level3"><span>shade:&nbsp;false,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span></span></li>
+              <li><span>function&nbsp;xtip_open2_2()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.open({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;noready&#39;,</span></li>
+              <li class="level3"><span>content:&nbsp;&#39;#tip_content2&#39;,</span></li>
+              <li class="level3"><span>app:&nbsp;true,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div>
+        </div>
+
+        <div class="table_row">
+          <div class="page_tit2">【url类型】包含链接</div>
+          <div class="example">
+            <p><input class="xinput" id="openval" type="text" placeholder="测试用" /></p><br>
+            <button class="xbutton" onclick="xtip_open3()">包含链接 (iframe)</button>
+            <button class="xbutton" onclick="xtip_open3_2()">APP模式</button>
+
+            <script type="text/javascript">
+            function parentFun(id)
+            {
+              xtip.alert('这个值是从子页面传递过来的：'+id);
+            }
+
+            function xtip_open3()
+            {
+              xtip.open({
+                type: 'url',
+                content: 'open.html',
+                title: '【url类型】',
+                lock: true,
+                width: '1100px',
+                height: '80%',
+                min: true,
+                max: true,
+                closeBtn: false,
+              });
+            }
+
+            function xtip_open3_2()
+            {
+              xtip.open({
+                type: 'url',
+                content: 'open.html',
+                title: '【url类型】',
+                height: '80%',
+                app: true,
+              });
+            }
+            </script>
+          </div>
+          <div class="pre">
+            <ol>
+              <li><span>&lt;p&gt;&lt;input&nbsp;class=&quot;xinput&quot;&nbsp;id=&quot;openval&quot;&nbsp;type=&quot;text&quot;&nbsp;placeholder=&quot;测试用&quot;&nbsp;/&gt;&lt;/p&gt;&lt;br&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_open3()&quot;&gt;包含链接&nbsp;(iframe)&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_open3_2()&quot;&gt;APP模式&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
+              <li><span>function&nbsp;parentFun(id)</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.alert(&#39;这个值是从子页面传递过来的：&#39;+id);</span></li>
+              <li><span>}</span></li>
+              <li><span></span></li>
+              <li><span>function&nbsp;xtip_open3()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.open({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;url&#39;,</span></li>
+              <li class="level3"><span>content:&nbsp;&#39;open.html&#39;,</span></li>
+              <li class="level3"><span>title:&nbsp;&#39;【url类型】&#39;,</span></li>
+              <li class="level3"><span>lock:&nbsp;true,</span></li>
+              <li class="level3"><span>width:&nbsp;&#39;1100px&#39;,</span></li>
+              <li class="level3"><span>height:&nbsp;&#39;80%&#39;,</span></li>
+              <li class="level3"><span>min:&nbsp;true,</span></li>
+              <li class="level3"><span>max:&nbsp;true,</span></li>
+              <li class="level3"><span>closeBtn:&nbsp;false,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span></span></li>
+              <li><span>function&nbsp;xtip_open3_2()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.open({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;url&#39;,</span></li>
+              <li class="level3"><span>content:&nbsp;&#39;open.html&#39;,</span></li>
+              <li class="level3"><span>title:&nbsp;&#39;【url类型】&#39;,</span></li>
+              <li class="level3"><span>height:&nbsp;&#39;80%&#39;,</span></li>
+              <li class="level3"><span>app:&nbsp;true,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div>
+        </div>
+
+        <div class="table_row">
+          <div class="page_tit2">【html类型】html代码</div>
+          <div class="page_tit3">直接填写html代码。长代码不推荐使用 <span>html</span> 类型，用 js 拼接 html 会导致代码可读性极差，遇到多引号、双引号时还需要转义，调试和后期修改不方便，推荐使用 <span>noready</span> 类型。</div>
+          <div class="example">
+            <button class="xbutton" onclick="xtip_open4()">html代码</button>
+            <button class="xbutton" onclick="xtip_open4_2()">APP模式</button>
+
+            <script type="text/javascript">
+            function xtip_open4()
+            {
+              xtip.open({
+                type: 'html',
+                width: '720px',
+                height: '550px',
+                content: '<div id="htmlcode" class="myclass">直接填写html代码。<br><br><button class="xbutton" onclick="xtip.msg(\'你好鸭\')">这个按钮的引号需要转义</button><br><br>长代码不推荐使用 html 类型，用 js 拼接 html 会导致代码可读性极差，遇到多引号、双引号时还需要转义，调试和后期修改不方便。<br><br>本例的代码长这个样子：<br><br><div class="keduxing"></div><br><br>是不是可读性极差，有点让人想抓狂？<br><br>所以，长代码推荐用 <span class="litit">noready</span> 类型！</div>',
+                title: false,
+                lock: true,
+              });
+            }
+
+            function xtip_open4_2()
+            {
+              xtip.open({
+                type: 'html',
+                height: '60%',
+                content: '<div id="htmlcode" class="myclass">APP模式</div>',
+                app: true,
+              });
+            }
+            </script>
+          </div>
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_open4()&quot;&gt;html代码&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_open4_2()&quot;&gt;APP模式&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
+              <li><span>function&nbsp;xtip_open4()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.open({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;html&#39;,</span></li>
+              <li class="level3"><span>width:&nbsp;&#39;720px&#39;,</span></li>
+              <li class="level3"><span>height:&nbsp;&#39;550px&#39;,</span></li>
+              <li class="level3"><span>content:&nbsp;&#39;&lt;div&nbsp;id=&quot;htmlcode&quot;&nbsp;class=&quot;myclass&quot;&gt;直接填写html代码。&lt;br&gt;&lt;br&gt;&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(\&#39;你好鸭\&#39;)&quot;&gt;这个按钮的引号需要转义&lt;/button&gt;&lt;br&gt;&lt;br&gt;长代码不推荐使用&nbsp;html&nbsp;类型，用&nbsp;js&nbsp;拼接&nbsp;html&nbsp;会导致代码可读性极差，遇到多引号、双引号时还需要转义，调试和后期修改不方便。&lt;br&gt;&lt;br&gt;本例的代码长这个样子：&lt;br&gt;&lt;br&gt;&lt;div&nbsp;class=&quot;keduxing&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;br&gt;是不是可读性极差，有点让人想抓狂？&lt;br&gt;&lt;br&gt;所以，长代码推荐用&nbsp;&lt;span&nbsp;class=&quot;litit&quot;&gt;noready&lt;/span&gt;&nbsp;类型！&lt;/div&gt;&#39;,</span></li>
+              <li class="level3"><span>title:&nbsp;false,</span></li>
+              <li class="level3"><span>lock:&nbsp;true,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span></span></li>
+              <li><span>function&nbsp;xtip_open4_2()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.open({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;html&#39;,</span></li>
+              <li class="level3"><span>height:&nbsp;&#39;60%&#39;,</span></li>
+              <li class="level3"><span>content:&nbsp;&#39;&lt;div&nbsp;id=&quot;htmlcode&quot;&nbsp;class=&quot;myclass&quot;&gt;APP模式&lt;/div&gt;&#39;,</span></li>
+              <li class="level3"><span>app:&nbsp;true,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div>
+        </div>
+
+        <div class="table_row">
+          <div class="page_tit2">【photo类型】相册</div>
+          <div class="page_tit3">给图片标签 <span>&lt;img&gt;</span> 添加 <span>data-xphoto</span> 属性，名称相同的为同一组相册；添加 <span>data-xhref</span> 属性可以点击图片打开链接；添加 <span>title</span> 属性可显示图片名称；添加 <span>data-xsrc</span> 属性可以设置大图路径，如果没有则读取 <span>src</span> 值。默认高度是自适应，也可以自己设置固定高度。</div>
+          <div class="example">
+            <div>
+              <img height="120" src="https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@0.0.3/dist/img/jqueryapi.png" title="jquery" data-xphoto="img1" data-xhref="https://www.jquery123.com" />
+              <img height="120" src="https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@0.0.3/dist/img/vuejs.png" title="vue.js" data-xphoto="img1" data-xhref="https://vuejs.bootcss.com" />
+              <img height="120" src="css/img.png" data-xphoto="img1" data-xsrc="css/img.png" title="星星" />
+            </div><br>
+            <button class="xbutton hide_1200" onclick="xtip_open5()">【photo类型】相册</button>
+            <button class="xbutton hide_1200" onclick="xtip_open5_2()">APP模式</button>
+            <button class="xbutton" onclick="xtip.photoApp('img1')">APP模式还可以直接 xtip.photoApp()</button>
+
+            <script type="text/javascript">
+            function xtip_open5()
+            {
+              xtip.open({
+                type: 'photo',
+                width: '60%',
+                content: 'img1',
+                title: '相册',
+                over: false,
+                lock: true,
+                min: true,
+                max: true,
+              });
+            }
+
+            function xtip_open5_2()
+            {
+              xtip.open({
+                type: 'photo',
+                content: 'img1',
+                app: true,
+              });
+            }
+            </script>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;div&gt;</span></li>
+              <li class="level2"><span>&lt;img&nbsp;height=&quot;120&quot;&nbsp;src=&quot;https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@0.0.3/dist/img/jqueryapi.png&quot;&nbsp;title=&quot;jquery&quot;&nbsp;data-xphoto=&quot;img1&quot;&nbsp;data-xhref=&quot;https://www.jquery123.com&quot;&nbsp;/&gt;</span></li>
+              <li class="level2"><span>&lt;img&nbsp;height=&quot;120&quot;&nbsp;src=&quot;https://cdn.jsdelivr.net/npm/@bootcss/www.bootcss.com@0.0.3/dist/img/vuejs.png&quot;&nbsp;title=&quot;vue.js&quot;&nbsp;data-xphoto=&quot;img1&quot;&nbsp;data-xhref=&quot;https://vuejs.bootcss.com&quot;&nbsp;/&gt;</span></li>
+              <li class="level2"><span>&lt;img&nbsp;height=&quot;120&quot;&nbsp;src=&quot;css/img.png&quot;&nbsp;data-xphoto=&quot;img1&quot;&nbsp;data-xsrc=&quot;css/img.png&quot;&nbsp;title=&quot;星星&quot;&nbsp;/&gt;</span></li>
+              <li><span>&lt;/div&gt;&lt;br&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_open5()&quot;&gt;【photo类型】相册&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip_open5_2()&quot;&gt;APP模式&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.photoApp(&#39;img1&#39;)&quot;&gt;APP模式还可以直接&nbsp;xtip.photoApp()&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
+              <li><span>function&nbsp;xtip_open5()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.open({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;photo&#39;,</span></li>
+              <li class="level3"><span>width:&nbsp;&#39;60%&#39;,</span></li>
+              <li class="level3"><span>content:&nbsp;&#39;img1&#39;,</span></li>
+              <li class="level3"><span>title:&nbsp;&#39;相册&#39;,</span></li>
+              <li class="level3"><span>over:&nbsp;false,</span></li>
+              <li class="level3"><span>lock:&nbsp;true,</span></li>
+              <li class="level3"><span>min:&nbsp;true,</span></li>
+              <li class="level3"><span>max:&nbsp;true,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span></span></li>
+              <li><span>function&nbsp;xtip_open5_2()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xtip.open({</span></li>
+              <li class="level3"><span>type:&nbsp;&#39;photo&#39;,</span></li>
+              <li class="level3"><span>content:&nbsp;&#39;img1&#39;,</span></li>
+              <li class="level3"><span>app:&nbsp;true,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax" id="open_para">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="3">表达式：xtip.open(<em>config</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>config.type</td>
+                    <td>内容类型</td>
+                    <td>
+                      <p>[类型:string] [必填] [选值]</p><br>
+                      <table>
+                        <tr><td width="100">可选值</td><td>解释</td></tr>
+                        <tr><td><span>r</span> 或 <span>ready</span></td><td>已存在的元素</td></tr>
+                        <tr><td><span>n</span> 或 <span>noready</span></td><td>注释元素 [说明:你甚至可以写成 <span>notready</span> ，防止手贱写错]</td></tr>
+                        <tr><td><span>u</span> 或 <span>url</span> </td><td>包含链接</td></tr>
+                        <tr><td><span>h</span> 或  <span>html</span> </td><td>html代码</td></tr>
+                        <tr><td><span>p</span> 或  <span>photo</span> </td><td>相册</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.content</td>
+                    <td>内容</td>
+                    <td>
+                      <p>[类型:string] [必填] [选值]</p><br>
+                      <table>
+                        <tr><td width="100">当选值为</td><td>填写的内容</td></tr>
+                        <tr><td><span>ready</span> </td><td>填写元素 <span>id</span> 或 <span>class</span> (取第一个)，例如：<span>#myid</span> 或 <span>.myclass</span></td></tr>
+                        <tr><td><span>noready</span> </td><td>填写元素 <span>id</span> 或 <span>class</span> (取第一个)，例如：<span>#myid</span> 或 <span>.myclass</span></td></tr>
+                        <tr><td><span>url</span> </td><td>填写 url 链接，例如：<span>open.html</span> 或 <span>https://www.baidu.com/</span></td></tr>
+                        <tr><td><span>html</span> </td><td>填写 html 代码，例如：<span>&lt;div&nbsp;id=&quot;htmlcode&quot;&gt;html代码&lt;/div&gt;</span></td></tr>
+                        <tr><td><span>photo</span> </td><td>填写相册组名称，例如：<span>group1</span></td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.title</td>
+                    <td>弹层标题</td>
+                    <td>[类型:string] [可选] [默认:无]</td>
+                  </tr>
+                  <tr>
+                    <td>config.width</td>
+                    <td>宽度</td>
+                    <td>[类型:string] [可选] [默认:600px]</td>
+                  </tr>
+                  <tr>
+                    <td>config.height</td>
+                    <td>高度</td>
+                    <td>[类型:string] [可选] [默认:600px]</td>
+                  </tr>
+                  <tr>
+                    <td>config.maxWidth</td>
+                    <td>最大宽度</td>
+                    <td>[类型:string] [可选] [默认:无] [限制:当 <span>width</span> 为 <span>px</span> 类型且 <span>maxWidth</span> 为 <span>%</span> 类型时才生效]</td>
+                  </tr>
+                  <tr>
+                    <td>config.maxHeight</td>
+                    <td>最大高度</td>
+                    <td>[类型:string] [可选] [默认:无] [限制:当 <span>height</span> 为 <span>px</span> 类型且 <span>maxHeight</span> 为 <span>%</span> 类型时才生效]</td>
+                  </tr>
+                  <tr>
+                    <td>config.x</td>
+                    <td>横向位置偏移</td>
+                    <td>[类型:number] [可选] [默认:空] [说明:正数向右，负数向左。偏移基于中间位置，单位px]</td>
+                  </tr>
+                  <tr>
+                    <td>config.y</td>
+                    <td>纵向位置偏移</td>
+                    <td>[类型:number] [可选] [默认:空] [说明:正数向下，负数向上。偏移基于中间位置，单位px]</td>
+                  </tr>
+                  <tr>
+                    <td>config.bgcolor</td>
+                    <td>内容背景色</td>
+                    <td>[类型:string] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>config.shade</td>
+                    <td>是否开启遮罩</td>
+                    <td>[类型:boolean] [可选] [默认:true(开启)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.shadeClose</td>
+                    <td>是否开启点击遮罩关闭</td>
+                    <td>[类型:boolean] [可选] [默认:true(开启)] [限制:开启遮罩时才会生效]</td>
+                  </tr>
+                  <tr>
+                    <td>config.end</td>
+                    <td>关闭后的回调函数</td>
+                    <td>[类型:function] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>config.min</td>
+                    <td>是否开启最小化按钮</td>
+                    <td>[类型:boolean] [可选] [默认:false(不开启)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.max</td>
+                    <td>是否开启最大化按钮</td>
+                    <td>[类型:boolean] [可选] [默认:false(不开启)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.closeBtn</td>
+                    <td>是否开启关闭按钮</td>
+                    <td>[类型:boolean] [可选] [默认:true(开启)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.move</td>
+                    <td>是否开启拖拽窗口</td>
+                    <td>[类型:boolean] [可选] [默认:true(开启)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.lock</td>
+                    <td>是否锁定滚动条</td>
+                    <td>[类型:boolean] [可选] [默认:false(不锁定)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.over</td>
+                    <td>内容超出范围时是否显示</td>
+                    <td>[类型:boolean] [可选] [默认:true(以滚动条形式显示)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.index</td>
+                    <td>相册层参数，显示第几张图片</td>
+                    <td>[类型:number] [可选] [默认:1]</td>
+                  </tr>
+                  <tr>
+                    <td>config.app</td>
+                    <td>是否开启APP模式</td>
+                    <td>[类型:boolean] [可选] [默认:false (不开启)] <span class="hide_1200" style="cursor:pointer;" onclick="aboutApp()">关于APP模式的一些说明</span></td>
+                  </tr>
+                  <tr>
+                    <td>config.reset</td>
+                    <td>是否重置窗口内容</td>
+                    <td>[类型:boolean] [可选] [默认:true (重置)] [说明:为 false 时一个实例(根据输入参数判断)只能有一个窗口，且窗口内容改变后不会重置] <button class="xbutton xlit" onclick="open_reset(true)">内容重置</button> <button class="xbutton xlit" onclick="open_reset(false)">内容不重置</button>
+                      <script>
+                      function open_reset(flag)
+                      {
+                        xtip.open({
+                          type: 'html',
+                          content: '<input class="xinput" placeholder="随便输入点什么" />',
+                          reset: flag,
+                          shade: false,
+                          title: '1',
+                          min: true,
+                          max: true,
+                        });
+                      }
+                      </script>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.id</td>
+                    <td>实例id</td>
+                    <td>[类型:number / string] [可选] [默认:空] [说明:参数完全相同的事件，如果不设置 <span>reset</span> 为 <span>true</span> 时只能开启一个实例，这时可以修改 <span>id</span> 值给参数完全相同的事件创建不同的实例] <button class="xbutton xlit" onclick="open_id(1)">ID1</button> <button class="xbutton xlit" onclick="open_id(2)">ID2</button>
+                      <script>
+                      function open_id(id)
+                      {
+                        xtip.open({
+                          type: 'html',
+                          content: '123',
+                          id: id,
+                          shade: false,
+                          reset: false,
+                        });
+                      }
+                      </script>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.zindex</td>
+                    <td>层叠顺序</td>
+                    <td>[类型:number] [可选] [默认:99999]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div id="aboutapp">
+        <!-- <div style="padding:15px;">
+          <div class="page_tit3">
+            <p>开启APP模式后，部分参数会失效，由于参数过多，这里只展示有效参数，具体请看下表：</p><br>
+            <table class="xtable xfirst">
+              <tr>
+                <td width="120">参数</td>
+                <td>说明</td>
+              </tr>
+              <tr>
+                <td>config.type</td>
+                <td>内容类型</td>
+              </tr>
+              <tr>
+                <td>config.content</td>
+                <td>内容</td>
+              </tr>
+              <tr>
+                <td>config.title</td>
+                <td>弹层标题</td>
+              </tr>
+              <tr>
+                <td>config.height</td>
+                <td>高度</td>
+              </tr>
+              <tr>
+                <td>config.bgcolor</td>
+                <td>内容背景色</td>
+              </tr>
+              <tr>
+                <td>config.end</td>
+                <td>关闭后的回调函数</td>
+              </tr>
+              <tr>
+                <td>config.over</td>
+                <td>内容超出范围时是否显示</td>
+              </tr>
+              <tr>
+                <td>config.index</td>
+                <td>相册层参数，显示第几张图片</td>
+              </tr>
+              <tr>
+                <td>config.app</td>
+                <td>true</td>
+              </tr>
+              <tr>
+                <td>config.zindex</td>
+                <td>层叠顺序</td>
+              </tr>
+            </table>
+          </div>
+        </div> -->
+      </div>
+      <script>
+      function aboutApp()
+      {
+        xtip.open({
+          type: 'n',
+          content: '#aboutapp',
+          height: '80%',
+          title: '关于open层APP模式的一些说明',
+          x: 120.12,
+        })
+      }
+      </script>
+
+      <div id="load" class="maindiv">
+        <div class="page_tit">加载层 xtip.load()</div>
+        <div class="page_tit3">加载层默认不会自动关闭，方便 Ajax 返回数据后关闭，实现用户交互。关闭层用 <span class="litit">xtip.close()</span> 实现。</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" onclick="xtip.load()">默认</button>
+            <button class="xbutton" onclick="xtip.load('加载中...')">带文字</button>
+            <button class="xbutton" onclick="xtip.load('',{lock:true})">锁定滚动条</button>
+            <button class="xbutton" onclick="xtip.load('2秒后自动关闭',{times:2})">2秒后自动关闭</button>
+            <button class="xbutton" onclick="ajaxdata()">Ajax返回结果后关闭load层</button>
+
+            <script type="text/javascript">
+            //本地调试: 审查元素-Network-Online改为Slow 3G进行调试
+            function ajaxdata()
+            {
+              loadid = xtip.load();
+              $.ajax({
+                type: "post",
+                url: "ajax.php",
+                dataType: "json",
+                data: "",
+                success:function(redata){
+                  if(redata.status==1){
+                    xtip.close(loadid);
+                  }
+                }
+              });
+            }
+            </script>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.load()&quot;&gt;默认&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.load(&#39;加载中...&#39;)&quot;&gt;带文字&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.load(&#39;&#39;,{lock:true})&quot;&gt;锁定滚动条&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.load(&#39;2秒后自动关闭&#39;,{times:2})&quot;&gt;2秒后自动关闭&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;ajaxdata()&quot;&gt;Ajax返回结果后关闭load层&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
+              <li><span>//本地调试:&nbsp;审查元素-Network-Online改为Slow&nbsp;3G进行调试</span></li>
+              <li><span>function&nbsp;ajaxdata()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>loadid&nbsp;=&nbsp;xtip.load();</span></li>
+              <li class="level2"><span>$.ajax({</span></li>
+              <li class="level3"><span>type:&nbsp;&quot;post&quot;,</span></li>
+              <li class="level3"><span>url:&nbsp;&quot;ajax.php&quot;,</span></li>
+              <li class="level3"><span>dataType:&nbsp;&quot;json&quot;,</span></li>
+              <li class="level3"><span>data:&nbsp;&quot;&quot;,</span></li>
+              <li class="level3"><span>success:function(redata){</span></li>
+              <li class="level4"><span>if(redata.status==1){</span></li>
+              <li class="level5"><span>xtip.close(loadid);</span></li>
+              <li class="level4"><span>}</span></li>
+              <li class="level3"><span>}</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="5">表达式：xtip.load(<em>tip</em>, <em>config</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>tip</td>
+                    <td>消息内容</td>
+                    <td>[类型:string] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>config.times</td>
+                    <td>几秒后自动关闭</td>
+                    <td>[类型:number] [可选] [默认:0(不自动关闭)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.lock</td>
+                    <td>是否锁定滚动条</td>
+                    <td>[类型:boolean] [可选] [默认:false(不锁定)]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div id="sheet" class="maindiv">
+        <div class="page_tit">面板菜单 xtip.sheet()</div>
+        <div class="page_tit3">面板菜单主要应用于移动端，会锁定滚动条。面板菜单选项无回调函数时，点击选项不会有反应。</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" onclick="xtiper_sheet1()">默认</button>
+            <button class="xbutton" onclick="xtiper_sheet2()">带标题、靠左</button>
+            <button class="xbutton" onclick="xtiper_sheet3()">强制选择</button>
+
+            <script type="text/javascript">
+            function xtiper_sheet1()
+            {
+              sheet = xtip.sheet({
+                btn: ['选择1 回调函数','选择2 链接跳转(当前页面)','选择3 链接跳转(新页面)','选择4 空/空字符/未定义'],
+                btn1: function(){
+                  xtip.msg('你选择了1')
+                },
+                btn2: 'open.html',
+                btn3: ['open.html','blank'],
+              });
+            }
+
+            function xtiper_sheet2()
+            {
+              sheet = xtip.sheet({
+                title: '确定要删除吗？',
+                align: 'left',
+                btn: ['确定'],
+                btn1: function(){
+                  xtip.msg('已经删除了！')
+                },
+                end: function(){
+                  xtip.msg('关闭了',{times:1});
+                },
+                btnClose: 'Close',
+              });
+            }
+
+            function xtiper_sheet3()
+            {
+              sheet = xtip.sheet({
+                force: '请选择一个',
+                btn: ['蕾姆','拉姆'],
+                btn1: function(){
+                  xtip.msg('蕾姆赛高！');
+                },
+                btn2: function(){
+                  xtip.msg('拉姆赛高！');
+                },
+              });
+            }
+            </script>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_sheet1()&quot;&gt;默认&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_sheet2()&quot;&gt;带标题、靠左&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_sheet3()&quot;&gt;强制选择&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
+              <li><span>function&nbsp;xtiper_sheet1()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>sheet&nbsp;=&nbsp;xtip.sheet({</span></li>
+              <li class="level3"><span>btn:&nbsp;[&#39;选择1&nbsp;回调函数&#39;,&#39;选择2&nbsp;链接跳转(当前页面)&#39;,&#39;选择3&nbsp;链接跳转(新页面)&#39;,&#39;选择4&nbsp;空/空字符/未定义&#39;],</span></li>
+              <li class="level3"><span>btn1:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;你选择了1&#39;)</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level3"><span>btn2:&nbsp;&#39;open.html&#39;,</span></li>
+              <li class="level3"><span>btn3:&nbsp;[&#39;open.html&#39;,&#39;blank&#39;],</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span></span></li>
+              <li><span>function&nbsp;xtiper_sheet2()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>sheet&nbsp;=&nbsp;xtip.sheet({</span></li>
+              <li class="level3"><span>title:&nbsp;&#39;确定要删除吗？&#39;,</span></li>
+              <li class="level3"><span>align:&nbsp;&#39;left&#39;,</span></li>
+              <li class="level3"><span>btn:&nbsp;[&#39;确定&#39;],</span></li>
+              <li class="level3"><span>btn1:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;已经删除了！&#39;)</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level3"><span>end:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;关闭了&#39;,{times:1});</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level3"><span>btnClose:&nbsp;&#39;Close&#39;,</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span></span></li>
+              <li><span>function&nbsp;xtiper_sheet3()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>sheet&nbsp;=&nbsp;xtip.sheet({</span></li>
+              <li class="level3"><span>force:&nbsp;&#39;请选择一个&#39;,</span></li>
+              <li class="level3"><span>btn:&nbsp;[&#39;蕾姆&#39;,&#39;拉姆&#39;],</span></li>
+              <li class="level3"><span>btn1:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;蕾姆赛高！&#39;);</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level3"><span>btn2:&nbsp;function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;拉姆赛高！&#39;);</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="3">表达式：xtip.sheet(<em>config</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>config.btn</td>
+                    <td>选项组</td>
+                    <td>[类型:array] [必填] [限制:最多只能有8个选项]</td>
+                  </tr>
+                  <tr>
+                    <td>config.btn[1-8]</td>
+                    <td>选项组[1-8]的回调</td>
+                    <td>
+                      <p>[类型:function / string / array] [必填] [选值]</p><br>
+                      <table>
+                        <tr><td width="160">选值</td><td>解释</td></tr>
+                        <tr><td><span>function(){alert('函数');}</span> </td><td>回调函数</td></tr>
+                        <tr><td><span>open.html</span> </td><td>跳转链接</td></tr>
+                        <tr><td><span>['open.html','blank']</span> </td><td>跳转链接在新窗口</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.title</td>
+                    <td>标题</td>
+                    <td>[类型:string] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>config.align</td>
+                    <td>文字对齐</td>
+                    <td>
+                      <p>[类型:string] [可选] [选值] [默认:center]</p><br>
+                      <table>
+                        <tr><td width="160">选值</td><td>解释</td></tr>
+                        <tr><td><span>c</span>  或<span>center</span> </td><td>居中 [默认]</td></tr>
+                        <tr><td><span>l</span> 或 <span>left</span> </td><td>居左</td></tr>
+                        <tr><td><span>r</span> 或 <span>right</span> </td><td>居右</td></tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>config.force</td>
+                    <td>强制选择 (模式下的提示内容)</td>
+                    <td>[类型:string] [可选] [默认:空]<br>[说明:当 force 存在时开启强制选择模式，内容为强制选择的提示内容]</td>
+                  </tr>
+                  <tr>
+                    <td>config.btnClose</td>
+                    <td>关闭按钮文字</td>
+                    <td>[类型:string] [可选] [默认:取消]<br>[说明:为适应中文以外的语言版本而存在]</td>
+                  </tr>
+                  <tr>
+                    <td>config.end</td>
+                    <td>关闭后的回调函数</td>
+                    <td>[类型:function] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>config.zindex</td>
+                    <td>层叠顺序</td>
+                    <td>[类型:number] [可选] [默认:99999]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div id="close" class="maindiv">
+        <div class="page_tit">关闭层 xtip.close() / 关闭所有层xtip.closeAll()</div>
+        <div class="page_tit3"><span>xtip.close()</span> 需要填写参数，<span>xtip.closeAll()</span> 不需要。</div>
+        <div class="table_row">
+          <div class="example">
+            <button class="xbutton" onclick="xip_close1()">开启一个层</button>
+            <button class="xbutton" onclick="xtip.close(xipid)">关闭指定层</button>
+            <button class="xbutton" onclick="xtip.closeAll()">关闭所有层</button>
+
+            <script type="text/javascript">
+            var xipid;
+            function xip_close1()
+            {
+              xipid = xtip.open({
+                type: 'html',
+                content: '12',
+                width: '300px',
+                maxWidth: '100%',
+                title: '测试',
+                shade: false,
+                lock: true,
+                reset: false,
+              });
+            }
+            </script>
+          </div><!--example-->
+          <div class="pre">
+            <ol>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xip_close1()&quot;&gt;开启一个层&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.close(xipid)&quot;&gt;关闭指定层&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.closeAll()&quot;&gt;关闭所有层&lt;/button&gt;</span></li>
+              <li><span></span></li>
+              <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
+              <li><span>var&nbsp;xipid;</span></li>
+              <li><span>function&nbsp;xip_close1()</span></li>
+              <li><span>{</span></li>
+              <li class="level2"><span>xipid&nbsp;=&nbsp;xtip.win({</span></li>
+              <li class="level3"><span>title:&nbsp;&#39;测试&#39;,</span></li>
+              <li class="level3"><span>shade:&nbsp;false</span></li>
+              <li class="level2"><span>});</span></li>
+              <li><span>}</span></li>
+              <li><span>&lt;/script&gt;</span></li>
+            </ol>
+            <div class="precode"></div>
+            <div class="preicon">
+              <span class="precopy precopy1" title="格式化复制"></span>
+              <span class="precopy precopy2" title="复制"></span>
+              <span class="pretype" title="暗色调"></span>
+            </div><!--precopy-->
+          </div><!--pre-->
+          <div class="paramax">
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="3">表达式：xtip.close(<em>id</em>)</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>弹层 id 值</td>
+                    <td>[类型:string] [必填]</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para xtablein xfirst xtableall">
+              <div class="parain">
+                <table>
+                  <tr>
+                    <td colspan="3">表达式：xtip.closeAll()</td>
+                  </tr>
+                  <tr>
+                    <td width="120">参数</td>
+                    <td width="200">说明</td>
+                    <td>属性</td>
+                  </tr>
+                  <tr>
+                    <td>无</td>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="para_app">查看参数</div>
+          </div>
+        </div>
+      </div><!--maindiv-->
+
+      <div class="table_row">
+        <div class="page_tit3" style="text-align:right;">本项目为<span>原生javascript</span>，参考了Layer</div>
+      </div><!--table_row-->
+    </div><!--pright-->
+  </div><!--page_pr-->
+</div><!--page-->
+
+<!--以下为非必要代码-->
+<script src="https://cdn.bootcss.com/jquery/1.10.1/jquery.min.js"></script>
+<link href="css/layout.css" type="text/css" rel="stylesheet" />
+<link href="css/style.css" type="text/css" rel="stylesheet" />
+<link href="css/xui.css" type="text/css" rel="stylesheet" />
+<script>
+function diff()
+{
+  xtip.open({
+    type: 'noready',
+    content: '#alco',
+    title: '通知和反馈的区别',
+    ifhas: false,
+    width: '1000px',
+    height: '550px',
+    lock: true
+  });
+}
+
+$(window).scroll(function()
+{
+	saction();
+});
+function saction()
+{
+	liarr = new Array("explain","msg","danmu","tips","alert","confirm","win","photo","photoapp","open","load","sheet","close");
+	d = new Array();
+	t = $(window).scrollTop();
+	for(i=0;i<liarr.length;i++)
+	{
+		d[i] = $("#"+liarr[i]).offset().top-100; //提前50像素生效
+		if(t>d[i]){
+			$(".li_"+liarr[i]).addClass("on").siblings().removeClass("on");
+      text = $(".li_"+liarr[i]).find("a").text();
+      if(text == "相册层 xtip.photo"){
+        text = "移动端相册层 xtip.photoApp";
+      }
+      $(".top_cen").text(text);
+		}
+	}
+}
+window.onload=function(){
+  bwidth = window.innerWidth;
+  if(bwidth>1200){
+  	bheight = window.innerHeight-20;
+  	pheight = $(".pleft").height();
+  	if(bheight<pheight){
+      $(".pleft").css({"height":(bheight-20)+'px'});
+  	}
+  }
+
+  setTimeout(function(){
+    $(".pleft").css({"transition-duration":"0.2s"});
+  },1);
+  
+}
+
+function space(num)
+{
+  s = ' ';
+  str = '';
+  for(var i=0;i<num;i++){
+    str += s+'';
+  }
+  return str;
+}
+
+//复制代码
+$(document).on("click",".precopy",function(){
+	pa = $(this).parents(".pre");
+	olheight = $(pa).find("ol").height();
+	if($(pa).find(".precode").is(":hidden"))
+	{
+		ol = $(pa).find("ol li");
+		$(pa).find(".precode").css({"height":olheight+"px"});
+		html = '<textarea class="xtext xful">';
+		for(i=0;i<ol.length;i++)
+		{
+			if($(this).hasClass("precopy2"))
+			{
+				if($(ol[i]).hasClass("level2")){
+          html += space(2);
+        }else if($(ol[i]).hasClass("level3")){
+          html += space(4);
+        }else if($(ol[i]).hasClass("level4")){
+          html += space(6);
+        }else if($(ol[i]).hasClass("level5")){
+          html += space(8);
+        }else if($(ol[i]).hasClass("level6")){
+          html += space(10);
+        }else if($(ol[i]).hasClass("level7")){
+          html += space(12);
+        }else if($(ol[i]).hasClass("level8")){
+          html += space(14);
+        }else if($(ol[i]).hasClass("level9")){
+          html += space(16);
+        }else if($(ol[i]).hasClass("level9")){
+          html += space(18);
+        }
+			}
+			
+			if($(ol[i]).find("span").html())
+			{
+        text = $(ol[i]).find("span").html();
+        text = text.replace(/\<\/{0,1}span\>/g,"");  //去除span标签
+        text = text.replace("&nbsp;"," ");  //空格
+				html += text;
+			}
+			
+			if(i!=ol.length-1 && $(this).hasClass("precopy2")){
+				html += "\n";
+			}
+		}
+		html += '</textarea>';
+		$(pa).find(".precode").html(html);
+		$(pa).find("ol").hide();
+		$(pa).find(".precode").show();
+		$(pa).find(".precode textarea").select();
+	}
+	else
+	{
+		$(pa).find("ol").show();
+		$(pa).find(".precode").hide();
+		$(pa).find(".precode").html("");
+		$(pa).find(".precode").css({"height":""});
+	}
+})
+$(document).on("blur",".precode textarea",function(){
+	$(this).parents(".pre").find("ol").show();
+	$(this).parent(".precode").hide();
+	$(this).parent(".precode").html("");
+})
+
+//代码暗色调
+$(document).on("click",".pretype",function(){
+	$(this).parents(".pre").toggleClass("on");
+})
+
+//app
+$(document).on("click",".top_btn.ll",function(){
+  $(".pleft").addClass("on");
+  $(".pleft_zw").addClass("on");
+})
+
+$(document).on("click",".top_btn.lr",function(){
+  $("body, html").animate({scrollTop:0},0);
+  $(".top_cen").text("关于 Xtiper");
+})
+
+$(document).on("click",".pleft_zw, .pleft li a",function(){
+  $(".pleft").removeClass("on");
+  $(".pleft_zw").removeClass("on");
+})
+
+$(document).on("click",".para_app",function(){
+  $(this).parent().find(".para").toggle();
+  text = $(this).text();
+  if(text=='查看参数'){
+    text = '收起参数';  
+  }else{
+    text = '查看参数';  
+  }
+  $(this).text(text);
+})
+</script>
+
+</body>
+</html>

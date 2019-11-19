@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>测试页面</title>
+<script type="text/javascript">
+function fun1()
+{
+  var parent = window.parent; //获取父窗口
+  parent.document.getElementById("openval").value="赋值成功1"; //给父窗口节点赋值
+}
+
+function fun2()
+{
+  var parent = window.parent; //获取父窗口
+  var selfid = self.frameElement.getAttribute('parentid'); //获取本窗口id
+  parent.xtip.close(selfid); //关闭本窗口
+}
+
+function fun3()
+{
+  var parent = window.parent; //获取父窗口
+  parent.document.getElementById("openval").value="赋值成功2"; //给父窗口节点赋值
+  var selfid = self.frameElement.getAttribute('parentid'); //获取本窗口id
+  parent.xtip.close(selfid); //关闭本窗口
+}
+
+function fun4()
+{
+  var parent = window.parent; //获取父窗口
+  parent.parentFun('son');
+}
+</script>
+</head>
+
+<body>
+<button onclick="fun1()">赋值</button> <button onclick="fun2()">关闭本窗口</button> <button onclick="fun3()">赋值并关闭本窗口</button> <button onclick="fun4()">调用父页面的函数</button>
+<br><br>
+<strong style="display:block; padding-bottom:8px;">网页代码：</strong>
+<div style="padding-right:10px;"><textarea style="width:100%; height:400px; resize:none; font-size:14px;">
+&lt;!DOCTYPE&nbsp;html&gt;
+&lt;html&nbsp;lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta&nbsp;content=&quot;text/html;&nbsp;charset=utf-8&quot;&nbsp;http-equiv=&quot;Content-Type&quot;&nbsp;/&gt;
+&lt;title&gt;测试页面&lt;/title&gt;
+&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;
+//赋值
+function&nbsp;fun1()
+{
+&nbsp;&nbsp;var&nbsp;parent&nbsp;=&nbsp;window.parent;&nbsp;//获取父窗口
+&nbsp;&nbsp;parent.document.getElementById(&quot;openval&quot;).value=&quot;赋值成功1&quot;;&nbsp;//给父窗口节点赋值
+}
+
+//关闭本窗口
+function&nbsp;fun2()
+{
+&nbsp;&nbsp;var&nbsp;parent&nbsp;=&nbsp;window.parent;&nbsp;//获取父窗口
+&nbsp;&nbsp;var&nbsp;selfid&nbsp;=&nbsp;self.frameElement.getAttribute(&#39;parentid&#39;);&nbsp;//获取本窗口id
+&nbsp;&nbsp;parent.xtip.close(selfid);&nbsp;//关闭本窗口
+}
+
+//赋值并关闭本窗口
+function&nbsp;fun3()
+{
+&nbsp;&nbsp;var&nbsp;parent&nbsp;=&nbsp;window.parent;&nbsp;//获取父窗口
+&nbsp;&nbsp;parent.document.getElementById(&quot;openval&quot;).value=&quot;赋值成功2&quot;;&nbsp;//给父窗口节点赋值
+&nbsp;&nbsp;var&nbsp;selfid&nbsp;=&nbsp;self.frameElement.getAttribute(&#39;parentid&#39;);&nbsp;//获取本窗口id
+&nbsp;&nbsp;parent.xtip.close(selfid);&nbsp;//关闭本窗口
+}
+
+//调用父页面函数
+function&nbsp;fun4()
+{
+&nbsp;&nbsp;var&nbsp;parent&nbsp;=&nbsp;window.parent;&nbsp;//获取父窗口
+&nbsp;&nbsp;parent.parentFun(&#39;son&#39;);
+}
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;button&nbsp;onclick=&quot;fun1()&quot;&gt;赋值&lt;/button&gt;
+&lt;button&nbsp;onclick=&quot;fun2()&quot;&gt;关闭本窗口&lt;/button&gt;
+&lt;button&nbsp;onclick=&quot;fun3()&quot;&gt;赋值并关闭本窗口&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea></div>
+
+<br><br><br><br><br><br><br>
+
+<p>占位文本</p>
+<p>占位文本</p>
+<p>占位文本</p>
+<p>占位文本</p>
+<p>占位文本</p>
+<p>占位文本</p>
+<p>占位文本</p>
+<p>占位文本</p>
+<p>占位文本</p>
+<p>占位文本</p>
+<p>占位文本</p>
+<p>占位文本</p>
+
+<br><br><br><br><br><br><br>
+
+</body>
+</html>
