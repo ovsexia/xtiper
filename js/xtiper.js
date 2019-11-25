@@ -1,6 +1,6 @@
 /*
  * author: ovsexia
- * version: 2.6.0
+ * version: 2.6.1
  * name: Xtiper
  * describe: 弹层弹窗解决方案
  */
@@ -201,7 +201,7 @@ Xclass.pt.html = function(){
   //弹幕
   else if(c.model=='danmu'){
     var danmuli = document.getElementsByClassName('xtiper_danmu');
-    if(danmuli.length>300){
+    if(danmuli.length>300 || document.hidden){
       return false;
     }
 
@@ -596,7 +596,7 @@ Xclass.pt.attr = function(){
     var bheight = Math.round(window.innerHeight * 0.65);
     var danmuTop = randomNum(10, bheight);
     var bwidth = document.body.offsetWidth + 22;
-    xtipdiv.style.transform = 'translate('+bwidth+'px)';
+    xtipdiv.style.transform = 'translateX('+bwidth+'px)';
     xtipdiv.style.top = danmuTop+'px';
 
     var danmuli = document.getElementsByClassName('xtiper_danmu');
@@ -1128,7 +1128,7 @@ Xclass.pt.danmuStar = function(){
   var danmutime = Number(xtipdiv.style.animationDuration.replace(/s/,''));
   that.dataset(xtipdiv, 'xdanmu', danmutime);
 
-  that.outtime =setTimeout(function(){
+  that.outtime = setTimeout(function(){
     that.close();
   },(danmutime*1000)+1);
 };
@@ -1141,7 +1141,7 @@ Xclass.pt.danmuStop = function(){
 
   var bwidth = document.body.offsetWidth + 22;
   var newtranslate = xtipdiv.getBoundingClientRect().left;
-  xtipdiv.style.transform = 'translate('+newtranslate+'px)';
+  xtipdiv.style.transform = 'translateX('+newtranslate+'px)';
 
   if(that.outtime){
     clearInterval(that.outtime);
@@ -1150,8 +1150,8 @@ Xclass.pt.danmuStop = function(){
 
   var progress = newtranslate / bwidth;
   var lesstime = 6 * progress;
-  if(lesstime < 0.2){
-    lesstime = 0.2;
+  if(lesstime < 0.4){
+    lesstime = 0.4;
   }
   that.dataset(xtipdiv, 'xdanmu', lesstime);
   xtipdiv.style.animationDuration = lesstime+'s';
@@ -1567,7 +1567,7 @@ Xclass.pt.getsize = function(size){
 };
 
 window.xtip = {
-  ver: '2.6.0',
+  ver: '2.6.1',
 
   msg: function(tip, config){
     if(!tip){

@@ -20,7 +20,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,code,pre,form,fieldset,legend,input
 
 @keyframes danmu_animate
 {
-	100% {transform:translate(-102%, 0);}
+	100% {transform:translateX(-102%);}
 }
 
 .xtiper_tips {position:absolute; z-index:99999; max-width:200px; opacity:0; transform:scale(0,0); transition-duration:0.1s; transition-timing-function:ease-in; transition-property:opacity,transform; box-shadow:0 0 5px rgba(0,0,0,0.3);}
