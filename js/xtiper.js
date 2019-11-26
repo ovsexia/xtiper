@@ -1,6 +1,6 @@
 /*
  * author: ovsexia
- * version: 2.6.1
+ * version: 2.6.2
  * name: Xtiper
  * describe: 弹层弹窗解决方案
  */
@@ -835,7 +835,9 @@ Xclass.pt.after = function(){
     that.shade();
 
     //绑定键盘事件
-    that.key();
+    if(c.model=='win' || c.model=='open'){
+      that.key();
+    }
 
     //自动关闭
     if(c.model=='win' && c.type=='alert' && c.times>0){
@@ -1415,7 +1417,7 @@ Xclass.pt.shade = function(){
   }
 };
 
-// 可能有bug
+//键盘事件
 Xclass.pt.key = function(){
   var that = this;
   var c = that.c;
@@ -1427,16 +1429,18 @@ Xclass.pt.key = function(){
       if(e.keyCode==27){ //按 Esc
         that.close();
       }else if(e.keyCode==13) { //按 Enter
-        //多按钮取消回车事件
-        if(c.btn2 || c.btn3){
+        if(c.model=='win'){
+          //多按钮取消回车事件
+          if(c.btn2 || c.btn3){
+            return false;
+          }
+          that.close();
+          if(c.btn1 && typeof(c.btn1)=='function'){
+            c.btn1();
+            c.btn1 = null;
+          }
           return false;
         }
-        that.close();
-        if(c.btn1 && typeof(c.btn1)=='function'){
-          c.btn1();
-          c.btn1 = null;
-        }
-        return false;
       }
       else{
         return e;
@@ -1567,7 +1571,7 @@ Xclass.pt.getsize = function(size){
 };
 
 window.xtip = {
-  ver: '2.6.1',
+  ver: '2.6.2',
 
   msg: function(tip, config){
     if(!tip){
