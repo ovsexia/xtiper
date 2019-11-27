@@ -1,6 +1,6 @@
 /*
  * author: ovsexia
- * version: 2.6.2
+ * version: 2.6.3
  * name: Xtiper
  * describe: 弹层弹窗解决方案
  */
@@ -214,13 +214,6 @@ Xclass.pt.html = function(){
   //气泡层
   else if(c.model=='tips'){
     that.newelement = document.getElementById(c.element) || c.element;
-    dataTips = that.dataset(that.newelement, 'xtips');
-    if(dataTips){
-      return false; //只能有一个实例
-    }else{
-      that.dataset(that.newelement, 'xtips', 1);
-    }
-
     if(c.bgcolor){
       html += '<p style="background-color:'+c.bgcolor+';'+(c.color ? ' color:'+c.color+';"' : '')+'">'+c.tip+'</p>';
     }else{
@@ -1531,10 +1524,6 @@ Xclass.pt.close = function(closeid){
     }
   }
 
-  if(c.model=='tips'){
-    that.dataset(that.newelement, 'xtips', '');
-  }
-
   //关闭层有锁定属性的才执行解除锁定
   if(checkLock===true){
     that.unlock();
@@ -1571,7 +1560,7 @@ Xclass.pt.getsize = function(size){
 };
 
 window.xtip = {
-  ver: '2.6.2',
+  ver: '2.6.3',
 
   msg: function(tip, config){
     if(!tip){
