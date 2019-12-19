@@ -84,8 +84,9 @@ input, textarea, select, button {outline:none;}
 
 /*****单选框*****/
 .xradio {height:20px; line-height:20px; position:relative; font-size:14px; margin-bottom:10px;}
-.xradio:last-child {margin-bottom:0;}
-span.xradio {display:inline-block; margin-bottom:0; margin-right:18px; vertical-align:top;}
+div.xradio:last-child {margin-bottom:0;}
+span.xradio {display:inline-block; margin-bottom:0; margin-right:16px; vertical-align:top;}
+span.xradio:last-child {margin-right:0;}
 .xradio label span {margin-left:26px; color:#333;}
 .xradio label input[type="radio"] {position:absolute; z-index:-1; width:0; height:0; overflow:hidden; visibility:hidden; opacity:0;}
 .xradio label em {display:block; width:20px; height:20px; border-radius:50%; border:1px solid #ddd; background-color:#fff; -webkit-box-sizing:border-box; box-sizing:border-box; position:absolute; top:0; left:0; -webkit-transition:0.1s ease-in; transition:0.1s ease-in; -webkit-transition-property:border-color,background-color; transition-property:border-color,background-color;}
@@ -106,8 +107,8 @@ span.xradio {display:inline-block; margin-bottom:0; margin-right:18px; vertical-
 
 /*****复选框*****/
 .xcheckbox {min-width:20px; height:20px; line-height:20px; position:relative; font-size:14px; margin-bottom:10px;}
-.xcheckbox:last-child {margin-bottom:0;}
-span.xcheckbox {display:inline-block; margin-bottom:0; margin-right:18px; vertical-align:top;}
+div.xcheckbox:last-child {margin-bottom:0;}
+span.xcheckbox {display:inline-block; margin-bottom:0; margin-right:16px; vertical-align:top;}
 span.xcheckbox:last-child {margin-right:0;}
 .xcheckbox label span {margin-left:26px; color:#333;}
 .xcheckbox label input[type="checkbox"] {position:absolute; z-index:-1; width:0; height:0; overflow:hidden; visibility:hidden; opacity:0;}
