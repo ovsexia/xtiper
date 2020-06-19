@@ -38,7 +38,7 @@
         <li class="li_close"><a href="#close">关闭层 xtip.close&lt;All&gt;</a></li>
       </ul>
     </div><!--pleft-->
-    
+
     <div class="pright">
       <div id="explain" class="maindiv">
         <div class="page_tit">关于 Xtiper</div>
@@ -219,7 +219,7 @@
          </div>
         </div>
       </div><!--maindiv-->
-      
+
       <div id="danmu" class="maindiv">
         <div class="page_tit">弹幕 xtip.danmu()</div>
         <div class="page_tit3">弹幕是我在所有层中唯一带着好玩、和实验性质写的，在实际项目中用到的可能性不高，所以在给定参数上不会纠结太多，例如字体大小、弹幕速度之类的。动画改用 css3 实现，性能大幅度提升。弹幕的分布区间是从顶部 10 像素 - 页面高度的 65% 的位置</div>
@@ -380,6 +380,7 @@
                 bgcolor: 'rgb(255,255,255)',
                 times: 3,
                 pos: 't',
+                closeBtn: true,
               });
             }
             </script>
@@ -400,6 +401,7 @@
               <li class="level3"><span>bgcolor:&nbsp;&#39;rgb(255,255,255)&#39;,</span></li>
               <li class="level3"><span>times:&nbsp;3,</span></li>
               <li class="level3"><span>pos:&nbsp;&#39;t&#39;,</span></li>
+              <li class="level3"><span>closeBtn:&nbsp;true,</span></li>
               <li class="level2"><span>});</span></li>
               <li><span>}</span></li>
               <li><span>&lt;/script&gt;</span></li>
@@ -468,6 +470,11 @@
                         <tr><td><span>r</span> 或 <span>right</span></td><td>右 [默认]</td></tr>
                       </table>
                     </td>
+                  </tr>
+                  <tr>
+                    <td>config.closeBtn</td>
+                    <td>是否开启关闭按钮</td>
+                    <td>[类型:boolean] [可选] [默认:false(关闭)]</td>
                   </tr>
                   <tr>
                     <td>config.zindex</td>
@@ -1102,9 +1109,19 @@
                     <td>[类型:string] [必填]</td>
                   </tr>
                   <tr>
-                    <td>index</td>
+                    <td>config.index</td>
                     <td>显示第几张图片</td>
                     <td>[类型:number] [可选] [默认:1]</td>
+                  </tr>
+                  <tr>
+                    <td>config.iftitle</td>
+                    <td>是否显示标题</td>
+                    <td>[类型:boolean] [可选] [默认:true(显示)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.iforder</td>
+                    <td>是否显示序号</td>
+                    <td>[类型:boolean] [可选] [默认:true(显示)]</td>
                   </tr>
                 </table>
               </div>
@@ -2218,7 +2235,7 @@ window.onload=function(){
   setTimeout(function(){
     $(".pleft").css({"transition-duration":"0.2s"});
   },1);
-  
+
 }
 
 function space(num)
@@ -2264,7 +2281,7 @@ $(document).on("click",".precopy",function(){
           html += space(18);
         }
 			}
-			
+
 			if($(ol[i]).find("span").html())
 			{
         text = $(ol[i]).find("span").html();
@@ -2272,7 +2289,7 @@ $(document).on("click",".precopy",function(){
         text = text.replace("&nbsp;"," ");  //空格
 				html += text;
 			}
-			
+
 			if(i!=ol.length-1 && $(this).hasClass("precopy2")){
 				html += "\n";
 			}
@@ -2322,9 +2339,9 @@ $(document).on("click",".para_app",function(){
   $(this).parent().find(".para").toggle();
   text = $(this).text();
   if(text=='查看参数'){
-    text = '收起参数';  
+    text = '收起参数';
   }else{
-    text = '查看参数';  
+    text = '查看参数';
   }
   $(this).text(text);
 })

@@ -1,6 +1,6 @@
 /*
  * author: ovsexia
- * version: 2.6.3
+ * version: 2.6.4
  * name: Xtiper
  * describe: 弹层弹窗解决方案
  */
@@ -65,7 +65,10 @@ Xclass.pt.loseblur = function(){
   var input = document.getElementsByTagName('input');
   if(input.length>0){
     for(var i=0;i<input.length;i++){
-      input[i].blur();
+      input_type = input[i].getAttribute('type');
+      if(input_type && (input_type=='button' || input_type=='submit')){
+        input[i].blur();
+      }
     }
   }
 };
@@ -92,7 +95,7 @@ Xclass.pt.creat = function(){
 
   //3.添加classname、属性
   that.attr();
-  
+
   //4.添加动画效果
   that.on();
 
@@ -220,6 +223,9 @@ Xclass.pt.html = function(){
       html += '<p>'+c.tip+'</p>';
     }
     html += '<em style="background-color:'+c.bgcolor+';"></em>';
+    if(c.closeBtn===true){
+      html += '<div class="xtiper_close xtiper_close_notit xtiper_close_notitmin"></div>';
+    }
   }
   //弹窗层
   else if(c.model=='win'){
@@ -273,7 +279,7 @@ Xclass.pt.html = function(){
     }
     html += '</div></div></div></div></div>';
     html += '<div class="xtiper_btn'+(c.icon && c.iconFlag===true ? ' xtiper_btn_'+c.icon : '')+' xtiper_btn'+c.btn.length+'"><ul>';
-    
+
     for(var i=0;i<4;i++){
       if(c.btn[i]){
         html += '<li'+btnclass[i]+'><button'+(btnclass[i] && c.iconColor && c.type=='confirm' ? ' style="background-color:'+c.iconColor+'"' : '')+'>'+c.btn[i]+'</button></li>';
@@ -332,13 +338,18 @@ Xclass.pt.html = function(){
         return false;
       }
       if(!element){
-       return false; 
+       return false;
       }
       if(c.type=='ready'){
         content = element.outerHTML;
-        //移除id
-        reg = /\s+(id\=["'][A-z0-9_-]*["'])/g;
-        content = content.replace(reg,'');
+        //过滤主div标签的id
+        regid = /\#([A-z0-9_-]*)/;
+        content_id = (c.content).match(regid);
+        if(content_id && content_id[1]){
+          //reg = /\s+(id\=["']asd["'])/g;
+          reg = new RegExp('\\s+(id\\\=["\']' + 'asd' + '["\'])', 'g');
+          content = content.replace(reg, '');
+        }
       }else{
         content = element.innerHTML;
         reg = /\<\!\-{2}[\s\n]*([\S\s]*)[\s\n]*\-{2}\>/;
@@ -371,7 +382,7 @@ Xclass.pt.html = function(){
       if(!photo || photo.length==0){
         return false;
       }
-      var li = '<div class="xtiper_photo_num"'+(c.color ? 'style="color:'+c.color+';"' : '')+'><span class="xtiper_words"></span><span class="xtiper_num">'+c.index+'</span> / '+photo.length+'</div>';
+      var li = '<div class="xtiper_photo_num'+(c.iftitle===true ? ' xon' : '')+'"'+(c.color ? 'style="color:'+c.color+';"' : '')+'><span class="xtiper_words"></span><span class="xtiper_nummax'+(c.iforder===true ? ' xon' : '')+'"><span class="xtiper_num">'+c.index+'</span> / '+photo.length+'</span></div>';
       if(photo.length>1){
         li += '<div class="xtiper_photo_btn xtiper_photo_prev"></div><div class="xtiper_photo_btn xtiper_photo_next"></div>';
       }
@@ -414,7 +425,7 @@ Xclass.pt.html = function(){
           html += '<div class="xtiper_tit xtiper_tit_none"></div>';
         }
         if(c.closeBtn===true){
-          html += '<div class="xtiper_close xtiper_close_notit"></div>';
+          html += '<div class="xtiper_close xtiper_close_notit'+(c.photoapp===true ? ' xtiper_close_photoapp' : '')+'"></div>';
         };
       }
     }
@@ -504,7 +515,7 @@ Xclass.pt.findxoff = function(){
       xoffdiv = xoff[i];
     }
   }
-  
+
   if(xoffdiv){
     that.xtipdiv = xoffdiv;
     that.mainid = xoffdiv.getAttribute('id');
@@ -646,7 +657,7 @@ Xclass.pt.attr = function(){
     }
 
     if(c.model=='open' && that.xcstr){
-      that.dataset(xtipdiv,'xcstr',that.xcstr); 
+      that.dataset(xtipdiv,'xcstr',that.xcstr);
     }
 
     if(c.min===true || c.max===true){
@@ -777,6 +788,11 @@ Xclass.pt.after = function(){
   if(c.model=='msg' || c.model=='tips'){
     //自动关闭
     that.autoClose();
+
+    if(c.model=='tips'){
+      //绑定关闭按钮及遮罩点击关闭
+      that.shade();
+    }
   }
   //弹幕
   else if(c.model=='danmu'){
@@ -823,7 +839,7 @@ Xclass.pt.after = function(){
     if(c.move===true){
       that.drag(true);
     }
-    
+
     //绑定关闭按钮及遮罩点击关闭
     that.shade();
 
@@ -857,7 +873,7 @@ Xclass.pt.after = function(){
     //绑定关闭按钮及遮罩点击关闭
     that.shade();
     var btnfun = that.btnfun;
-    
+
     var xtipdiv_appli = xtipdiv.getElementsByClassName('xtiper_sheet_li');
     var btnlen = xtipdiv_appli.length;
     if(!c.force){
@@ -1022,8 +1038,8 @@ Xclass.pt.photoBtn = function(type){
     if(index > li.length - 1){
       index = 0;
     }
-  } 
-  
+  }
+
   that.now = index;
 
   var xnum = index + 1;
@@ -1032,7 +1048,7 @@ Xclass.pt.photoBtn = function(type){
   var xtiper_words = xtiper_main.getElementsByClassName('xtiper_words')[0];
 
   var img;
-  for(var i=0;i<li.length;i++){ 
+  for(var i=0;i<li.length;i++){
     if(i==index){
       li[i].classList.add('xon');
       xtiper_words.innerHTML = that.dataset(li[i], 'xtitle');
@@ -1190,7 +1206,7 @@ Xclass.pt.autoClose = function(){
         that.close();
         clearInterval(that.timer);
         that.timer = null;
-      } 
+      }
       i--;
     };
     that.timer = setInterval(fn, 1000);
@@ -1223,7 +1239,7 @@ Xclass.pt.unlock = function(){
   var that = this;
   var flag = 0;
   var winli = document.getElementsByClassName('xtiper_win');
-  
+
   for(var i=0;i<winli.length;i++){
     if(that.dataset(winli[i], 'xlock')==1 && winli[i].classList.contains('xoff')===false){
       flag++;
@@ -1288,7 +1304,7 @@ Xclass.pt.minmax = function(mtype, act){
     xtiper_main.style.width = setwidth;
     xtiper_main.style.height = setheight;
     xtiper_tit.classList.add('xminmax');
-    
+
     if(mtype=='min'){
       xtiper_tit.classList.add('xmin');
       xtiper_tit.getElementsByTagName('p')[0].setAttribute('title',xtiper_tit.getElementsByTagName('p')[0].innerHTML);
@@ -1324,7 +1340,7 @@ Xclass.pt.drag = function(open){
     return false;
   }
   var drag_main = xtipdiv.getElementsByClassName('xtiper_main')[0];
-  
+
   if(open===true){
     drag.onmousedown = function(event){
       //允许3/4的区域拖动到页面外
@@ -1624,6 +1640,7 @@ window.xtip = {
     }
     o.times = config.times ? config.times : 2;
     o.pos = config.pos ? config.pos : 'right';
+    o.closeBtn = config.closeBtn ? config.closeBtn : false;
     o.zindex = config.zindex ? config.zindex : 99999;
 
     return(this.run(o));
@@ -1715,10 +1732,11 @@ window.xtip = {
     return(this.open(o));
   },
 
-  photoApp: function(content, index){
+  photoApp: function(content, config){
     if(!content){
       return false;
     }
+    config = config || {};
     var o = {};
     o.type = 'photo';
     o.width = '100%';
@@ -1728,11 +1746,14 @@ window.xtip = {
     o.move = false;
     o.shade = true;
     o.shadeClose = false;
-    o.closeBtn = false;
+    o.closeBtn = true;
     o.content = content;
+    o.photoapp = true;
     o.lock = true;
     o.reset = true;
-    o.index = index ? index : 1;
+    o.index = config.index ? config.index : 1;
+    o.iftitle = config.iftitle!=null ? config.iftitle : true;
+    o.iforder = config.iforder!=null ? config.iforder : true;
 
     return(this.open(o));
   },
@@ -1817,6 +1838,9 @@ window.xtip = {
     }
     o.reset = config.reset!=null ? config.reset : true;
     o.zindex = config.zindex ? config.zindex : 99999;
+    o.photoapp = config.photoapp ? config.photoapp : false;
+    o.iftitle = config.iftitle!=null ? config.iftitle : true;
+    o.iforder = config.iforder!=null ? config.iforder : true;
 
     return(this.run(o));
   },
