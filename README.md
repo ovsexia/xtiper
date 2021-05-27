@@ -4,7 +4,7 @@
 Xtiper 是一款整合 PC 、移动端的弹层弹窗（甚至还有弹幕）解决方案。采用原生的 javascript 编写，体积小，不依赖任何 js 库，不加载任何图片，使用方便。
 
 #### 预览地址
-[https://ovsexia.gitee.io/xtiper/](https://ovsexia.github.io/xtiper/)
+[https://ovsexia.github.io/xtiper/](https://ovsexia.github.io/xtiper/)
 
 #### 使用方法
 
