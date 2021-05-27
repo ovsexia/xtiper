@@ -6,12 +6,14 @@ Xtiper 是一款整合 PC 、移动端的弹层弹窗（甚至还有弹幕）解
 #### 预览地址
 [https://ovsexia.github.io/xtiper/](https://ovsexia.github.io/xtiper/)
 
+#### 从 npm 安装
+`npm i xtiper`
+
 #### 使用方法
 
 `<link href="css/xtiper.css" type="text/css" rel="stylesheet" />`
 
 `<script src="js/xtiper.js" type="text/javascript"></script>`
-
 
 ### 版本更新
 
