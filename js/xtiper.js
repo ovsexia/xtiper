@@ -1,8 +1,9 @@
 /*
  * author: ovsexia
- * version: 2.6.4
+ * version: 2.6.5
  * name: Xtiper
  * describe: 弹层弹窗解决方案
+ * License: Mozilla Public License Version 2.0
  */
 
 ;!function(window, undefined){
@@ -231,7 +232,7 @@ Xclass.pt.html = function(){
   else if(c.model=='win'){
     if(c.type=='alert'){
       c.btn = c.btn!=null ? c.btn : ['确定'];
-      c.btn1 = 1==2 ? null : function(){return false;};
+      c.btn1 = 1===2 ? null : function(){return false;};
       c.btn2 = null;
       c.btn3 = null;
       c.btn4 = null;
@@ -439,6 +440,9 @@ Xclass.pt.html = function(){
       html += '<span>'+c.tip+'</span>';
     }
     html += '</div>';
+    if(c.closeBtn===true){
+      html += '<div class="xtiper_close xtiper_close_load"></div>';
+    }
   }
   //面板菜单
   else if(c.model=='sheet'){
@@ -867,6 +871,9 @@ Xclass.pt.after = function(){
   else if(c.model=='load'){
     //自动关闭
     that.autoClose();
+
+    //绑定关闭按钮
+    that.shade();
   }
   //面板菜单
   else if(c.model=='sheet'){
@@ -1276,6 +1283,7 @@ Xclass.pt.minmax = function(mtype, act){
   var xtiper_content = xtipdiv.getElementsByClassName('xtiper_content')[0];
   var minbtn = xtipdiv.getElementsByClassName('xtiper_min')[0];
   var maxbtn = xtipdiv.getElementsByClassName('xtiper_max')[0];
+  var xtiper_bg = xtipdiv.getElementsByClassName('xtiper_bg')[0];
 
   if(iftype==1 || act==1){ //还原
     xtiper_main.style.width = that.dataset(xtipdiv, 'xwidth')+'px';
@@ -1300,6 +1308,13 @@ Xclass.pt.minmax = function(mtype, act){
       maxbtn.style.display = '';
     }
     that.drag(true);
+
+    //最小化还原遮罩
+    if((c.model=='win' || c.model=='open') && c.shade===true && c.min===true){
+      xtipdiv.classList.add('xtiper_win_fixed');
+      xtiper_bg.classList.remove('xmin');
+      xtiper_main.style.position = '';
+    }
   }else{ //变形
     xtiper_main.style.width = setwidth;
     xtiper_main.style.height = setheight;
@@ -1315,6 +1330,13 @@ Xclass.pt.minmax = function(mtype, act){
       minbtn.classList.add('xon');
       if(maxbtn){
         maxbtn.style.display = 'none';
+      }
+
+      //最小化关闭遮罩
+      if((c.model=='win' || c.model=='open') && c.shade===true && c.min===true){
+        xtipdiv.classList.remove('xtiper_win_fixed');
+        xtiper_bg.classList.add('xmin');
+        xtiper_main.style.position = 'fixed';
       }
     }else if(mtype=='max'){
       that.dataset(xtipdiv, 'xmax', 1);
@@ -1576,7 +1598,7 @@ Xclass.pt.getsize = function(size){
 };
 
 window.xtip = {
-  ver: '2.6.3',
+  ver: '2.6.5',
 
   msg: function(tip, config){
     if(!tip){
@@ -1728,6 +1750,8 @@ window.xtip = {
     o.lock = true;
     o.reset = true;
     o.index = config.index ? config.index : 1;
+    o.iftitle = config.iftitle!=null ? config.iftitle : true;
+    o.iforder = config.iforder!=null ? config.iforder : true;
 
     return(this.open(o));
   },
@@ -1853,6 +1877,7 @@ window.xtip = {
     o.times = config.times ? config.times : 0;
     o.lock = config.lock!=null ? config.lock : false;
     o.zindex = config.zindex ? config.zindex : 99999;
+    o.closeBtn = config.closeBtn!=null ? config.closeBtn : false;
 
     return(this.run(o));
   },

@@ -574,7 +574,7 @@
                   <tr>
                     <td>config.btn</td>
                     <td>按钮</td>
-                    <td>[类型:string / array] [可选] [默认:确定]</td>
+                    <td>[类型:string / array] [可选] [默认:确定] [说明:只存在一个按钮]</td>
                   </tr>
                   <tr>
                     <td>config.times</td>
@@ -720,7 +720,7 @@
         <div class="page_tit3">
           <p><strong>通知：</strong>把消息告诉你，你不需要对此消息进行后续的操作。</p>
           <p><br></p>
-          <p><strong>反馈：</strong>把消息告诉你，需要你并进行后续的确认、反馈操作。</p>
+          <p><strong>反馈：</strong>把消息告诉你，需要你进行后续的确认、反馈操作。</p>
           <p><br></p>
           <p>注意：<span>xtip.alert()</span> 和 <span>xtip.confirm()</span> 实际上都是调用 <span>xtip.win()</span> 方法，是 <span>xtip.win()</span> 的简化版。因在实际应用中并不需要输入太多参数，就能满足大部分需求，所以刻意简化了输入参数，需要更多自定义设置请使用 <span>xtip.win()</span> 。</p>
           <p><br></p>
@@ -1061,6 +1061,16 @@
                     <td>[类型:number] [可选] [默认:1]</td>
                   </tr>
                   <tr>
+                    <td>config.iftitle</td>
+                    <td>是否显示标题</td>
+                    <td>[类型:boolean] [可选] [默认:true(显示)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.iforder</td>
+                    <td>是否显示序号</td>
+                    <td>[类型:boolean] [可选] [默认:true(显示)]</td>
+                  </tr>
+                  <tr>
                     <td>config.app</td>
                     <td>是否开启APP模式</td>
                     <td>[类型:boolean] [可选] [默认:false (不开启)] [说明:也可以直接调用<span>photoAPP()</span>]</td>
@@ -1096,7 +1106,7 @@
               <div class="parain">
                 <table>
                   <tr>
-                    <td colspan="5">表达式：xtip.photoApp(<em>content</em>, <em>index</em>)</td>
+                    <td colspan="5">表达式：xtip.photoApp(<em>content</em>, <em>config</em>)</td>
                   </tr>
                   <tr>
                     <td width="120">参数</td>
@@ -1885,6 +1895,11 @@
                     <td>config.lock</td>
                     <td>是否锁定滚动条</td>
                     <td>[类型:boolean] [可选] [默认:false(不锁定)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.closeBtn</td>
+                    <td>是否开启关闭按钮</td>
+                    <td>[类型:boolean] [可选] [默认:false(关闭)]</td>
                   </tr>
                 </table>
               </div>

@@ -83,7 +83,7 @@ input, textarea, select, button {outline:none;}
 
 
 /*****单选框*****/
-.xradio {height:20px; line-height:20px; position:relative; font-size:14px; margin-bottom:10px;}
+.xradio {min-height:20px; line-height:20px; position:relative; font-size:14px; margin-bottom:10px;}
 div.xradio:last-child {margin-bottom:0;}
 span.xradio {display:inline-block; margin-bottom:0; margin-right:16px; vertical-align:top;}
 span.xradio:last-child {margin-right:0;}
@@ -106,7 +106,7 @@ span.xradio:last-child {margin-right:0;}
 
 
 /*****复选框*****/
-.xcheckbox {min-width:20px; height:20px; line-height:20px; position:relative; font-size:14px; margin-bottom:10px;}
+.xcheckbox {min-width:20px; min-height:20px; line-height:20px; position:relative; font-size:14px; margin-bottom:10px;}
 div.xcheckbox:last-child {margin-bottom:0;}
 span.xcheckbox {display:inline-block; margin-bottom:0; margin-right:16px; vertical-align:top;}
 span.xcheckbox:last-child {margin-right:0;}
@@ -197,6 +197,7 @@ div.xfile {display:table;}
 
 /*首行样式*/
 .xtable.xfirst>thead>tr:first-child>th, .xtable.xfirst>thead>tr:first-child>td, .xtable.xfirst>tbody>tr:first-child>th, .xtable.xfirst>tbody>tr:first-child>td, .xtablein.xfirst>table>thead>tr:first-child>th, .xtablein.xfirst>table>thead>tr:first-child>td, .xtablein.xfirst>table>tbody>tr:first-child>th, .xtablein.xfirst>table>tbody>tr:first-child>td, .xtablein.xtableall.xfirst table>thead>tr:first-child>th, .xtablein.xtableall.xfirst table>thead>tr:first-child>td, .xtablein.xtableall.xfirst table>tbody>tr:first-child>th, .xtablein.xtableall.xfirst table>tbody>tr:first-child>td {font-size:14px; font-weight:bold; background-color:#f0f0f0; padding:11px 8px;}
+.xtable.xthead>tbody>tr:first-child>th, .xtable.xthead>tbody>tr:first-child>td, .xtablein.xthead>table>tbody>tr:first-child>th, .xtablein.xthead>table>tbody>tr:first-child>td {font-weight:normal; background-color:inherit; padding:8px;}
 
 /*无外部边框*/
 .xtable.xnobor-out>thead>tr:first-child>th, .xtable.xnobor-out>thead>tr:first-child>td, .xtable.xnobor-out>tbody>tr:first-child>th, .xtable.xnobor-out>tbody>tr:first-child>td, .xtablein.xnobor-out>table>thead>tr:first-child>th, .xtablein.xnobor-out>table>thead>tr:first-child>td, .xtablein.xnobor-out>table>tbody>tr:first-child>th, .xtablein.xnobor-out>table>tbody>tr:first-child>td, .xtablein.xtableall.xnobor-out table>thead>tr:first-child>th, .xtablein.xtableall.xnobor-out table>thead>tr:first-child>td, .xtablein.xtableall.xnobor-out table>tbody>tr:first-child>th, .xtablein.xtableall.xnobor-out table>tbody>tr:first-child>td {border-top:0;}

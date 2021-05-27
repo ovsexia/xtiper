@@ -35,6 +35,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,code,pre,form,fieldset,legend,input
 .xtiper_win {z-index:99999;}
 .xtiper_win_fixed {width:100%; height:100%; position:fixed; top:0; left:0; z-index:99999;}
 .xtiper_bg {width:100%; height:100%; position:absolute; top:0; left:0; z-index:1; background-color:rgba(0,0,0,0); transition-duration:0.1s; transition-timing-function:ease-in; transition-property:background-color,opacity;}
+.xtiper_bg.xmin {display:none;}
 .xtiper_bg_white {background-color:rgba(255,255,255,0); transition:0.05s ease-in;}
 .xtiper_win.xon .xtiper_bg {background-color:rgba(0,0,0,0.5);}
 .xtiper_win.xon .xtiper_bg_white {background-color:rgba(255,255,255,0.5);  transition:0.05s ease-in;}
@@ -75,6 +76,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,code,pre,form,fieldset,legend,input
 .xtiper_close_photoapp:hover {background-color:transparent;}
 .xtiper_close_photoapp:hover:before {transform:rotate(45deg);}
 .xtiper_close_photoapp:hover:after {transform:rotate(-45deg);}
+.xtiper_close_load {position:absolute; top:0; right:0;}
 
 .xtiper_photo {position:relative; overflow:hidden; transition-property:transform,opacity;}
 .xtiper_photo_ul {padding:0 60px; height:100%;}
@@ -126,6 +128,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,code,pre,form,fieldset,legend,input
 .xtiper_btnbor {width:100%; height:4px; overflow:hidden; background-color:#c3c3c3; position:relative;}
 .xtiper_btnbor:after {content:""; display:block; width:100%; height:4px; background-color:rgba(0,0,0,0.1); position:absolute; top:0; left:0;}
 .xtiper_btn1 .xtiper_btnbor:after {display:none;}
+.xtiper_btn2 li:nth-child(2) {opacity:0.92;}
 .xtiper_btn3 li:nth-child(1) {opacity:0.84;}
 .xtiper_btn3 li:nth-child(2) {opacity:0.92;}
 .xtiper_btn4 li:nth-child(1) {opacity:0.76;}
@@ -187,7 +190,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,code,pre,form,fieldset,legend,input
 .xtiper_photo_prev:after {transform:rotate(45deg); top:29px; left:3px;}
 .xtiper_photo_next:before {transform:rotate(45deg); top:13px; right:3px;}
 .xtiper_photo_next:after {transform:rotate(-45deg); top:29px; right:3px;}
-.xtiper_photo_num {position:absolute; bottom:0; text-align:center; left:50%; transform:translate(-50%, 0); font-size:13px; z-index:10; height:26px; line-height:26px; overflow:hidden; user-select:none; -ms-user-select:none;}
+.xtiper_photo_num {position:absolute; bottom:5px; text-align:center; left:50%; transform:translate(-50%, 0); font-size:13px; z-index:10; height:26px; line-height:26px; overflow:hidden; user-select:none; -ms-user-select:none;}
 .xtiper_nummax {padding-left:8px;}
 .xtiper_photo_num, .xtiper_nummax {display:none;}
 .xtiper_photo_num.xon, .xtiper_nummax.xon {display:inline-block;}
