@@ -135,8 +135,6 @@ Xclass.pt.namefix = function(c){
       c.type = 'url';
     }else if(c.type=='h'){
       c.type = 'html';
-    }else if(c.type=='p'){
-      c.type = 'photo';
     }else if(c.type=='w'){
       c.type = 'white';
     }else if(c.type=='b'){
@@ -196,19 +194,6 @@ Xclass.pt.html = function(){
   var html = '';
   //短消息
   if(c.model=='msg'){
-    html += '<p>';
-    if(c.icon){
-      html += c.iconFlag===true ? '<i class="xtiper_icon xtiper_icon_'+c.icon+' xtiper_icon_min"></i>' : '<img class="xtiper_icon xtiper_icon_min" src="'+c.icon+'" />';
-    }
-    html += c.tip+'</p>';
-  }
-  //弹幕
-  else if(c.model=='danmu'){
-    var danmuli = document.getElementsByClassName('xtiper_danmu');
-    if(danmuli.length>300 || document.hidden){
-      return false;
-    }
-
     html += '<p>';
     if(c.icon){
       html += c.iconFlag===true ? '<i class="xtiper_icon xtiper_icon_'+c.icon+' xtiper_icon_min"></i>' : '<img class="xtiper_icon xtiper_icon_min" src="'+c.icon+'" />';
@@ -369,46 +354,18 @@ Xclass.pt.html = function(){
       newcontent = '<div class="xtiper_content'+height_css+' xtiper_over"'+(c.bgcolor ? ' style="background-color:'+c.bgcolor+'"' : '')+'><div class="zw"></div><iframe parentid="'+that.mainid+'" scrolling="'+scrolling+'" allowtransparency="true" frameborder="0" src="'+c.content+'" style="width:100%; height:100%;"></iframe></div>';
     }else if(c.type=='html'){ //html代码
       newcontent = '<div class="xtiper_content'+xtiper_over+''+height_css+'"'+(c.bgcolor ? ' style="background-color:'+c.bgcolor+'"' : '')+'>'+c.content+'</div>';
-    }else if(c.type=='photo'){ //相册
-      var img = document.getElementsByTagName('img');
-      if(img.length==0){
-        return false;
-      }
-      var photo = new Array();
-      for(var i=0;i<img.length;i++){
-        if(that.dataset(img[i], 'xphoto')==c.content){
-          photo.push(img[i]);
-        }
-      }
-      if(!photo || photo.length==0){
-        return false;
-      }
-      var li = '<div class="xtiper_photo_num'+(c.iftitle===true ? ' xon' : '')+'"'+(c.color ? 'style="color:'+c.color+';"' : '')+'><span class="xtiper_words"></span><span class="xtiper_nummax'+(c.iforder===true ? ' xon' : '')+'"><span class="xtiper_num">'+c.index+'</span> / '+photo.length+'</span></div>';
-      if(photo.length>1){
-        li += '<div class="xtiper_photo_btn xtiper_photo_prev"></div><div class="xtiper_photo_btn xtiper_photo_next"></div>';
-      }
-      li += '<div class="xtiper_photo_ul"><ul>';
-      var xhref, xsrc;
-      var xindex = c.index - 1;
-      for(var i=0;i<photo.length;i++){
-        xhref = that.dataset(photo[i], 'xhref') ? that.dataset(photo[i], 'xhref') : '';
-        xsrc = that.dataset(photo[i], 'xsrc') ? that.dataset(photo[i], 'xsrc') : photo[i].src;
-        li += '<li class="xtiper_photo_li'+(i==xindex ? ' xon' : '')+(that.ifmob===true ? ' xapp' : '')+'" data-xtitle="'+photo[i].title+'"><p style="background-image:url(\''+xsrc+'\');">'+(xhref ? '<a href="'+xhref+'" target="_blank">' : '')+'<img src="'+xsrc+'">'+(xhref ? '</a>' : '')+(i==xindex && that.ifmob===true ? '<span class="xtiper_icon xtiper_icon_load xtiper_photo_load"></span>' : '')+'</p></li>';
-      }
-      li += '</ul></div>';
-      newcontent = '<div class="xtiper_content'+xtiper_over+''+height_css+'"'+(c.bgcolor ? ' style="background-color:'+c.bgcolor+'"' : '')+'>'+li+'</div>';
     }
 
     if(c.shade===true){
       html += '<div class="xtiper_bg"></div>';
     }
     if(c.app===true){
-      html += '<div class="xtiper_sheet'+(that.ifmob===true && c.type=='photo' ? ' xapp' : '')+'" style="height:'+height[0]+""+height[1]+';">';
+      html += '<div class="xtiper_sheet" style="height:'+height[0]+""+height[1]+';">';
       if(c.title){
         html += '<div class="xtiper_sheet_tit xtiper_sheet_left">'+c.title+'</div>';
       }
     }else{
-      html += '<div class="xtiper_main'+(that.ifmob===true && c.type=='photo' ? ' xapp' : '')+'" style="width:'+width[0]+""+width[1]+'; height:'+height[0]+""+height[1]+';">';
+      html += '<div class="xtiper_main" style="width:'+width[0]+""+width[1]+'; height:'+height[0]+""+height[1]+';">';
       if(c.title){
         html += '<div class="xtiper_tit'+(c.move===true ? '' : ' xminmax')+'"><p>'+c.title+'</p><div class="xtiper_minmax">';
         if(c.min===true){
@@ -426,7 +383,7 @@ Xclass.pt.html = function(){
           html += '<div class="xtiper_tit xtiper_tit_none"></div>';
         }
         if(c.closeBtn===true){
-          html += '<div class="xtiper_close xtiper_close_notit'+(c.photoapp===true ? ' xtiper_close_photoapp' : '')+'"></div>';
+          html += '<div class="xtiper_close xtiper_close_notit"></div>';
         };
       }
     }
@@ -443,51 +400,6 @@ Xclass.pt.html = function(){
     if(c.closeBtn===true){
       html += '<div class="xtiper_close xtiper_close_load"></div>';
     }
-  }
-  //面板菜单
-  else if(c.model=='sheet'){
-    var btnfun = new Array();
-    btnfun[0] = c.btn1 ? c.btn1 : null; btnfun[1] = c.btn2 ? c.btn2 : null;
-    btnfun[2] = c.btn3 ? c.btn3 : null; btnfun[3] = c.btn4 ? c.btn4 : null;
-    btnfun[4] = c.btn5 ? c.btn5 : null; btnfun[5] = c.btn6 ? c.btn6 : null;
-    btnfun[6] = c.btn7 ? c.btn7 : null; btnfun[7] = c.btn8 ? c.btn8 : null;
-    that.btnfun = btnfun;
-
-    var align = 'xtiper_sheet_' + c.align;
-
-    html += '<div class="xtiper_bg"></div><div class="xtiper_sheet">';
-    if(c.title){
-      html += '<div class="xtiper_sheet_tit '+align+'">'+c.title+'</div>';
-    }
-    html += '<ul class="xtiper_sheet_ul '+align+'">';
-    var licon,href,target;
-    for(var i=0;i<c.btn.length;i++){
-      if(btnfun[i]){
-        if(typeof(btnfun[i])=='function'){
-          licon = '<p>'+c.btn[i]+'</p>';
-        }else{
-          if(typeof(btnfun[i])=='object'){
-            href = btnfun[i][0];
-            target = btnfun[i][1] ? btnfun[i][1] : '';
-            if(target && target.substr(0,1)!='_'){
-              target = '_'+target;
-            }
-            target = ' target="'+target+'"';
-          }else{
-            href = btnfun[i];
-            target = '';
-          }
-          licon = '<a href="'+href+'"'+target+'><p>'+c.btn[i]+'</p></a>';
-        }
-      }else{
-        licon = '<p>'+c.btn[i]+'</p>';
-      }
-      html += '<li class="xtiper_sheet_li">'+licon+'</li>';
-    }
-    if(!c.force){
-      html += '<li class="xtiper_sheet_li xlast"><p>'+c.btnClose+'</p></li>';
-    }
-    html += '</ul></div>';
   }
   return html;
 };
@@ -590,30 +502,6 @@ Xclass.pt.attr = function(){
     xtipdiv.style.marginLeft = '-'+xwidth+'px';
     xtipdiv.style.whiteSpace = '';
   }
-  //弹幕
-  else if(c.model=='danmu'){
-    xtipdiv.classList.add('xtiper_msg');
-    xtipdiv.classList.add('xtiper_msg_'+c.type);
-    xtipdiv.classList.add('xtiper_danmu');
-
-    function randomNum(n,m){
-      var rander = Math.round(Math.random()*(m-n))+n;
-      return rander;
-    }
-
-    var bheight = Math.round(window.innerHeight * 0.65);
-    var danmuTop = randomNum(10, bheight);
-    var bwidth = document.body.offsetWidth + 22;
-    xtipdiv.style.transform = 'translateX('+bwidth+'px)';
-    xtipdiv.style.top = danmuTop+'px';
-
-    var danmuli = document.getElementsByClassName('xtiper_danmu');
-    if(danmuli.length>1){
-      if(c.light===true){
-        xtipdiv.classList.add('xtiper_danmu_light');
-      }
-    }
-  }
   //气泡层
   else if(c.model=='tips'){
     xtipdiv.classList.add('xtiper_tips');
@@ -699,42 +587,10 @@ Xclass.pt.attr = function(){
       if(c.app===false){
         var width = that.getsize(c.width);
 
-        if(c.type=='photo' && c.autoHeight===true){
-          var xindex = c.index - 1;
-          var imgdiv = xtipdiv.getElementsByClassName('xtiper_photo_li')[xindex].getElementsByTagName('img')[0];
-          imgdiv.onload = function(){
-            var img = imgdiv.offsetHeight;
-            img = img + 100;
-            if(img > window.innerHeight){
-              if(c.title){
-                img = window.innerHeight;
-              }else{
-                img = window.innerHeight - 26;
-              }
-            }
-            xtop = (window.innerHeight - img) / 2;
-            xtop = c.y ? xtop + c.y : xtop;
-            xtop = xtop + 'px';
-            xtiper_main.style.height = img + 'px';
-
-            if(width[1]=='%'){
-              xleft = (100 - width[0]) / 2;
-              xleft = c.x ? xleft + c.x : xleft;
-              xleft = xleft + width[1];
-            }else{
-              xleft = (window.innerWidth - xtiper_main.offsetWidth) / 2;
-              xleft = c.x ? xleft + c.x : xleft;
-              xleft = xleft + 'px';
-            }
-            xtiper_main.style.left = xleft;
-            xtiper_main.style.top = xtop;
-          }
-        }else{
-          xtiper_main.style.height = xtiper_main.offsetHeight + 'px';
-          xtop = (window.innerHeight - xtiper_main.offsetHeight) / 2;
-          xtop = c.y ? xtop + c.y : xtop;
-          xtop = xtop + 'px';
-        }
+        xtiper_main.style.height = xtiper_main.offsetHeight + 'px';
+        xtop = (window.innerHeight - xtiper_main.offsetHeight) / 2;
+        xtop = c.y ? xtop + c.y : xtop;
+        xtop = xtop + 'px';
 
         if(width[1]=='%'){
           xleft = (100 - width[0]) / 2;
@@ -757,11 +613,6 @@ Xclass.pt.attr = function(){
   }
   //加载层
   else if(c.model=='load'){
-    xtipdiv.classList.add('xtiper_win');
-    xtipdiv.classList.add('xtiper_win_fixed');
-  }
-  //面板菜单
-  else if(c.model=='sheet'){
     xtipdiv.classList.add('xtiper_win');
     xtipdiv.classList.add('xtiper_win_fixed');
   }
@@ -797,16 +648,6 @@ Xclass.pt.after = function(){
       //绑定关闭按钮及遮罩点击关闭
       that.shade();
     }
-  }
-  //弹幕
-  else if(c.model=='danmu'){
-    that.danmuStar();
-    xtipdiv.addEventListener('mouseenter', function() {
-      that.danmuStop();
-    });
-    xtipdiv.addEventListener('mouseleave', function() {
-      that.danmuStar();
-    });
   }
   //弹窗层、页面层
   else if(c.model=='win' || c.model=='open'){
@@ -856,16 +697,6 @@ Xclass.pt.after = function(){
     if(c.model=='win' && c.type=='alert' && c.times>0){
       that.autoClose();
     }
-
-    //相册按钮
-    if(c.type=='photo'){
-      that.photo();
-
-      var xindex = c.index - 1;
-      var li = xtipdiv.getElementsByClassName('xtiper_photo_li')[xindex];
-      var xtiper_words = xtipdiv.getElementsByClassName('xtiper_words')[0];
-      xtiper_words.innerHTML = that.dataset(li, 'xtitle');
-    }
   }
   //加载层
   else if(c.model=='load'){
@@ -874,32 +705,6 @@ Xclass.pt.after = function(){
 
     //绑定关闭按钮
     that.shade();
-  }
-  //面板菜单
-  else if(c.model=='sheet'){
-    //绑定关闭按钮及遮罩点击关闭
-    that.shade();
-    var btnfun = that.btnfun;
-
-    var xtipdiv_appli = xtipdiv.getElementsByClassName('xtiper_sheet_li');
-    var btnlen = xtipdiv_appli.length;
-    if(!c.force){
-      btnlen = btnlen - 1;
-    }
-
-    //绑定按钮事件
-    for(var i=0;i<btnlen;i++){
-      that.bclick(xtipdiv_appli[i], btnfun[i]);
-    }
-
-    if(!c.force){
-      xtipdiv_appli[btnlen].addEventListener('click', function() {
-        that.close();
-        if(c.end){
-          c.end();
-        }
-      });
-    }
   }
 
   //锁定滚动条
@@ -942,153 +747,6 @@ Xclass.pt.ulli = function(li, aa, xx, yy, close){
   }
 };
 
-Xclass.pt.photo = function(){
-  var that = this;
-  var c = that.c;
-  var xtipdiv = that.xtipdiv;
-
-  var ul = xtipdiv.getElementsByClassName('xtiper_photo_ul')[0];
-  var li = xtipdiv.getElementsByClassName('xtiper_photo_li');
-  var prev = xtipdiv.getElementsByClassName('xtiper_photo_prev')[0];
-  var next = xtipdiv.getElementsByClassName('xtiper_photo_next')[0];
-
-  if(prev && li.length>1){
-    prev.addEventListener('click', function(){
-      that.photoBtn('prev');
-    });
-  }
-  if(next && li.length>1){
-    next.addEventListener('click', function(){
-      that.photoBtn('next');
-    });
-  }
-
-  //移动端
-  if(that.ifmob===true && li.length>1){
-    var aa = null;
-    var moveX1, moveX2, moveY1, moveY2, xx, yy;
-    ul.addEventListener('touchstart', function(e){
-      moveX1 = e.changedTouches[0].pageX;
-      moveY1 = e.changedTouches[0].pageY;
-      that.touchmove(false);
-    });
-
-    ul.addEventListener('touchmove', function(e){
-      moveX2 = e.changedTouches[0].pageX;
-      moveY2 = e.changedTouches[0].pageY;
-      xx = moveX2 - moveX1;
-      yy = moveY2 - moveY1;
-      if(Math.abs(xx)>Math.abs(yy)){
-        aa = aa ? aa : 'left';
-      }else{
-        aa = aa ? aa : 'top';
-      }
-      that.ulli(li, aa, xx, yy);
-    });
-
-    ul.addEventListener('touchend', function(e){
-      if(moveX1 > moveX2){
-        if((moveX1 - moveX2 > 40) && aa=='left'){
-          that.photoBtn('next');
-        }
-      }else{
-        if((moveX2 - moveX1 > 40) && aa=='left'){
-          that.photoBtn('prev');
-        }
-      }
-      that.ulli(li, aa, '', yy, true);
-      aa = null;
-    });
-
-    ul.addEventListener('click', function(e){
-      that.close();
-    });
-  }else{
-    ul.addEventListener('touchstart', function(e){
-      return false;
-    });
-
-    ul.addEventListener('touchend', function(e){
-      return false;
-    });
-
-    ul.addEventListener('click', function(e){
-      return false;
-    });
-  }
-};
-
-Xclass.pt.photoBtn = function(type){
-  var that = this;
-  var c = that.c;
-  var xtipdiv = that.xtipdiv;
-
-  var li = xtipdiv.getElementsByClassName('xtiper_photo_li');
-  var xtiper_main = xtipdiv.getElementsByClassName('xtiper_main')[0];
-  if(xtiper_main.classList.contains('xtiper_main_photo')===true){
-    return false;
-  }
-  xtiper_main.classList.add('xtiper_main_photo');
-  var index = 0, old = 0;
-  for(var i=0;i<li.length;i++){
-    if(li[i].classList.contains('xon')===true){
-      index = old = i;
-    }
-  }
-  if(type=='prev'){
-    index--;
-    if(index < 0){
-      index = li.length - 1;
-    }
-  }else if(type=='next'){
-    index++;
-    if(index > li.length - 1){
-      index = 0;
-    }
-  }
-
-  that.now = index;
-
-  var xnum = index + 1;
-  var xtiper_num = xtiper_main.getElementsByClassName('xtiper_num')[0];
-  xtiper_num.innerHTML = xnum;
-  var xtiper_words = xtiper_main.getElementsByClassName('xtiper_words')[0];
-
-  var img;
-  for(var i=0;i<li.length;i++){
-    if(i==index){
-      li[i].classList.add('xon');
-      xtiper_words.innerHTML = that.dataset(li[i], 'xtitle');
-      xtiper_num.innerHTML = xnum;
-      if(c.autoHeight===true){
-        img = li[i].getElementsByTagName('img')[0].offsetHeight;
-        img = img + 100;
-        if(img > window.innerHeight){
-          if(c.title){
-            img = window.innerHeight;
-          }else{
-            img = window.innerHeight - 26;
-          }
-        }
-        xtiper_main.style.height = img+'px';
-        xtiper_main.style.top = ((window.innerHeight - img)/2)+'px';
-      }
-    }else{
-      li[i].classList.remove('xon');
-    }
-    if(i==old){
-      li[i].classList.add('xold_'+type);
-    }else{
-      li[i].classList.remove('xold_prev');
-      li[i].classList.remove('xold_next');
-    }
-  }
-  setTimeout(function(){
-    li[old].classList.remove('xold_'+type);
-    xtiper_main.classList.remove('xtiper_main_photo');
-  },401);
-};
-
 Xclass.pt.appScroll = function(e){
   e.preventDefault();
 };
@@ -1107,7 +765,7 @@ Xclass.pt.xcstrRep = function(str){
   str = str.replace(/[\s\n\r]/g,''); //空格换行回车
   str = encodeURIComponent(str).toLowerCase();
 
-  var reparr = [[/true/g,'1'],[/false/g,'0'],[/%/g,''],[/\(/g,''],[/\)/g,''],[/open/g,'o'],[/ready/g,'r'],[/noready/g,'n'],[/url/g,'u'],[/html/g,'h'],[/photo/g,'p'],[/function/g,'f'],[/99999/g,'9']];
+  var reparr = [[/true/g,'1'],[/false/g,'0'],[/%/g,''],[/\(/g,''],[/\)/g,''],[/open/g,'o'],[/ready/g,'r'],[/noready/g,'n'],[/url/g,'u'],[/html/g,'h'],[/function/g,'f'],[/99999/g,'9']];
   for(var i=0;i<reparr.length;i++){
     str = str.replace(reparr[i][0],reparr[i][1]);
   }
@@ -1130,50 +788,6 @@ Xclass.pt.maxSize = function(oldval,newval){
   }else{
     return oldval;
   }
-};
-
-//弹幕开始
-Xclass.pt.danmuStar = function(){
-  var that = this;
-  var c = that.c;
-  var xtipdiv = that.xtipdiv;
-
-  xtipdiv.classList.add('xtiper_danmu_animate');
-  if(xtipdiv.style.animationDuration==''){
-    xtipdiv.style.animationDuration = '6s';
-  }
-
-  var danmutime = Number(xtipdiv.style.animationDuration.replace(/s/,''));
-  that.dataset(xtipdiv, 'xdanmu', danmutime);
-
-  that.outtime = setTimeout(function(){
-    that.close();
-  },(danmutime*1000)+1);
-};
-
-//弹幕停止
-Xclass.pt.danmuStop = function(){
-  var that = this;
-  var c = that.c;
-  var xtipdiv = that.xtipdiv;
-
-  var bwidth = document.body.offsetWidth + 22;
-  var newtranslate = xtipdiv.getBoundingClientRect().left;
-  xtipdiv.style.transform = 'translateX('+newtranslate+'px)';
-
-  if(that.outtime){
-    clearInterval(that.outtime);
-    that.outtime = null;
-  }
-
-  var progress = newtranslate / bwidth;
-  var lesstime = 6 * progress;
-  if(lesstime < 0.4){
-    lesstime = 0.4;
-  }
-  that.dataset(xtipdiv, 'xdanmu', lesstime);
-  xtipdiv.style.animationDuration = lesstime+'s';
-  xtipdiv.classList.remove('xtiper_danmu_animate');
 };
 
 //绑定按钮事件
@@ -1435,14 +1049,9 @@ Xclass.pt.shade = function(){
   if(c.shadeClose){
     var bg = xtipdiv.getElementsByClassName('xtiper_bg')[0];
     bg.addEventListener('click', function() {
-      if(c.model=='sheet' && c.force){
-        xtip.msg(c.force);
-        return false;
-      }else{
-        that.close();
-        if(c.end && typeof(c.end)=='function'){
-          c.end();
-        }
+      that.close();
+      if(c.end && typeof(c.end)=='function'){
+        c.end();
       }
     });
   }
@@ -1511,11 +1120,6 @@ Xclass.pt.close = function(closeid){
 
   //弹幕类型不用延时
   var closenow = false;
-  if(xtipdiv.classList.contains('xtiper_danmu')===true){
-    closenow = true;
-  }else{
-    closenow = false;
-  }
 
   //不用延时关闭
   if(closenow===true){
@@ -1536,19 +1140,6 @@ Xclass.pt.close = function(closeid){
         }
         if(c.max===true){
           that.minmax('max',1);
-        }
-        if(c.model=='open' && c.type=='photo'){
-          if(that.ifmob===true){
-            var xtiper_content = xtipdiv.getElementsByClassName('xtiper_content')[0];
-            xtiper_content.style.backgroundColor = 'rgba(0,0,0,1)';
-          }
-          var li = xtipdiv.getElementsByClassName('xtiper_photo_li');
-          if(li.length>0){
-            for(var i=0;i<li.length;i++){
-              li[i].style.left = '';
-              li[i].style.top = '';
-            }
-          }
         }
       },201);
     }else{
@@ -1612,22 +1203,6 @@ window.xtip = {
     o.type = config.type ? config.type : 'black';
     o.pos = config.pos ? config.pos : 'middle';
     o.icon = config.icon ? config.icon : '';
-    o.zindex = config.zindex ? config.zindex : 99999;
-
-    return(this.run(o));
-  },
-
-  danmu: function(tip, config){
-    if(!tip){
-      return false;
-    }
-    config = config || {};
-    var o = {};
-    o.model = 'danmu';
-    o.tip = tip;
-    o.type = config.type ? config.type : 'black';
-    o.icon = config.icon ? config.icon : '';
-    o.light = config.light!=null ? config.light : false;
     o.zindex = config.zindex ? config.zindex : 99999;
 
     return(this.run(o));
@@ -1734,54 +1309,6 @@ window.xtip = {
     return(this.run(o));
   },
 
-  photo: function(content, config){
-    if(!content){
-      return false;
-    }
-    config = config || {};
-    var o = {};
-    o.type = 'photo';
-    o.title = config.title ? config.title : '';
-    o.autoHeight = config.height ? false : true;
-    o.width = config.width ? config.width : '600px';
-    o.height = config.height ? config.height : '400px';
-    o.content = content;
-    o.app = config.app!=null ? config.app : false;
-    o.lock = true;
-    o.reset = true;
-    o.index = config.index ? config.index : 1;
-    o.iftitle = config.iftitle!=null ? config.iftitle : true;
-    o.iforder = config.iforder!=null ? config.iforder : true;
-
-    return(this.open(o));
-  },
-
-  photoApp: function(content, config){
-    if(!content){
-      return false;
-    }
-    config = config || {};
-    var o = {};
-    o.type = 'photo';
-    o.width = '100%';
-    o.height = '100%';
-    o.bgcolor = 'rgba(0,0,0,1)';
-    o.title = false;
-    o.move = false;
-    o.shade = true;
-    o.shadeClose = false;
-    o.closeBtn = true;
-    o.content = content;
-    o.photoapp = true;
-    o.lock = true;
-    o.reset = true;
-    o.index = config.index ? config.index : 1;
-    o.iftitle = config.iftitle!=null ? config.iftitle : true;
-    o.iforder = config.iforder!=null ? config.iforder : true;
-
-    return(this.open(o));
-  },
-
   open: function(config){
     if(!config==null || !config.type || !config.content){
       return false;
@@ -1851,18 +1378,13 @@ window.xtip = {
     o.index = config.index ? config.index : 1;
     o.app = config.app!=null ? config.app : false;
     if(o.app===true){
-      if(o.type=='photo'){
-        return(this.photoApp(o.content, o.index));
-      }else{
-        o.height = config.height ? config.height : '';
-        o.lock = true;
-        o.shade = true;
-        o.shadeClose = true;
-      }
+      o.height = config.height ? config.height : '';
+      o.lock = true;
+      o.shade = true;
+      o.shadeClose = true;
     }
     o.reset = config.reset!=null ? config.reset : true;
     o.zindex = config.zindex ? config.zindex : 99999;
-    o.photoapp = config.photoapp ? config.photoapp : false;
     o.iftitle = config.iftitle!=null ? config.iftitle : true;
     o.iforder = config.iforder!=null ? config.iforder : true;
 
@@ -1878,36 +1400,6 @@ window.xtip = {
     o.lock = config.lock!=null ? config.lock : false;
     o.zindex = config.zindex ? config.zindex : 99999;
     o.closeBtn = config.closeBtn!=null ? config.closeBtn : false;
-
-    return(this.run(o));
-  },
-
-  sheet: function(config){
-    if(!config || !config.btn){
-      return false;
-    }
-    var o = {};
-    o.model = 'sheet';
-    o.title = config.title ? config.title : '';
-    o.align = config.align ? config.align : 'center';
-    var btn = new Array();
-    for(var i=0;i<8;i++){
-      if(config.btn[i]){
-        btn[i] = config.btn[i];
-      }
-    }
-    o.btn = btn;
-    o.btn1 = config.btn1 ? config.btn1 : null; o.btn2 = config.btn2 ? config.btn2 : null;
-    o.btn3 = config.btn3 ? config.btn3 : null; o.btn4 = config.btn4 ? config.btn4 : null;
-    o.btn5 = config.btn5 ? config.btn5 : null; o.btn6 = config.btn6 ? config.btn6 : null;
-    o.btn7 = config.btn7 ? config.btn7 : null; o.btn8 = config.btn8 ? config.btn8 : null;
-
-    o.force = config.force ? config.force : '';
-    o.btnClose = config.btnClose ? config.btnClose : '取消';
-    o.lock = true;
-    o.shadeClose = true;
-    o.end = typeof(config.end)=='function' ? config.end : null;
-    o.zindex = config.zindex ? config.zindex : 99999;
 
     return(this.run(o));
   },
