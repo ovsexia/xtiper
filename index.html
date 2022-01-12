@@ -115,22 +115,22 @@
         <div class="table_row">
           <div class="example">
             <button class="xbutton" onclick="xtip.msg('这是一个短消息')">短消息</button>
-            <button class="xbutton" onclick="xtip.msg('The world!',{times:4})">停顿4秒</button>
-            <button class="xbutton" onclick="xtip.msg('顶部消息',{pos:'t'})">顶部消息</button>
-            <button class="xbutton" onclick="xtip.msg('底部消息',{pos:'b'})">底部消息</button>
-            <button class="xbutton" onclick="xtip.msg('带图标',{icon:'s'})">带图标</button>
-            <button class="xbutton" onclick="xtip.msg('白色风格',{icon:'e',type:'w'})">白色风格</button>
-            <button class="xbutton" onclick="xtip.msg('自定义图标',{icon:'css/img.png',type:'w'})">自定义图标</button>
+            <button class="xbutton" onclick="xtip.msg('The world!', {times: 4})">停顿4秒</button>
+            <button class="xbutton" onclick="xtip.msg('顶部消息', {pos: 't'})">顶部消息</button>
+            <button class="xbutton" onclick="xtip.msg('底部消息', {pos: 'b'})">底部消息</button>
+            <button class="xbutton" onclick="xtip.msg('带图标', {icon: 's'})">带图标</button>
+            <button class="xbutton" onclick="xtip.msg('白色风格', {icon: 'e', type: 'w'})">白色风格</button>
+            <button class="xbutton" onclick="xtip.msg('自定义图标', {icon: 'css/img.png', type: 'w'})">自定义图标</button>
           </div><!--example-->
           <div class="pre">
             <ol>
               <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;这是一个短消息&#39;)&quot;&gt;短消息&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;The&nbsp;world!&#39;,{times:4})&quot;&gt;停顿4秒&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;顶部消息&#39;,{pos:&#39;t&#39;})&quot;&gt;顶部消息&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;底部消息&#39;,{pos:&#39;b&#39;})&quot;&gt;底部消息&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;带图标&#39;,{icon:&#39;s&#39;})&quot;&gt;带图标&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;白色风格&#39;,{icon:&#39;e&#39;,type:&#39;w&#39;})&quot;&gt;白色风格&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;自定义图标&#39;,{icon:&#39;css/img.png&#39;,type:&#39;w&#39;})&quot;&gt;自定义图标&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;The&nbsp;world!&#39;, {times: 4})&quot;&gt;停顿4秒&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;顶部消息&#39;, {pos: &#39;t&#39;})&quot;&gt;顶部消息&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;底部消息&#39;, {pos: &#39;b&#39;})&quot;&gt;底部消息&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;带图标&#39;, {icon: &#39;s&#39;})&quot;&gt;带图标&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;白色风格&#39;, {icon: &#39;e&#39;, type: &#39;w&#39;})&quot;&gt;白色风格&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.msg(&#39;自定义图标&#39;, {icon: &#39;css/img.png&#39;, type: &#39;w&#39;})&quot;&gt;自定义图标&lt;/button&gt;</span></li>
             </ol>
             <div class="precode"></div>
             <div class="preicon">
@@ -225,17 +225,17 @@
         <div class="page_tit3">弹幕是我在所有层中唯一带着好玩、和实验性质写的，在实际项目中用到的可能性不高，所以在给定参数上不会纠结太多，例如字体大小、弹幕速度之类的。动画改用 css3 实现，性能大幅度提升。弹幕的分布区间是从顶部 10 像素 - 页面高度的 65% 的位置</div>
         <div class="table_row">
           <div class="example">
-            <button class="xbutton" onclick="xtip.danmu('弹幕填充',{light:true,type:'b',icon:'w'})">弹幕</button>
+            <button class="xbutton" onclick="xtip.danmu('弹幕填充', {light: true, type: 'b', icon: 'w'})">弹幕</button>
             <button class="xbutton" onclick="danmulist2();this.innerHTML='多点几次测试性能'">前方高能</button>
             <button class="xbutton" onclick="danmuclose()">关闭弹幕</button>
             <script>
             function danmu()
             {
-              icon = arrforone(['','s','e','w','a','h','css/img.png']);
-              type = arrforone(['w','b']);
+              icon = arrforone(['', 's', 'e', 'w', 'a', 'h', 'css/img.png']);
+              type = arrforone(['w', 'b']);
 
-              tip = '随机弹幕'+randbix(1,10);
-              xtip.danmu(tip,{
+              tip = '随机弹幕'+randbix(1, 10);
+              xtip.danmu(tip, {
                 icon: icon,
                 type: type,
               });
@@ -254,7 +254,7 @@
               danmu();
               dm = setInterval(function(){
                 danmu();
-              },3*200);
+              }, 3*200);
               return dm;
             }
 
@@ -266,25 +266,25 @@
               }
             }
 
-            function randomNum(n,m)
+            function randomNum(n, m)
             {
               var rander = Math.round(Math.random()*(m-n))+n;
               return rander;
             }
 
             //随机小数点
-            function randbix(n,m)
+            function randbix(n, m)
             {
               bix = Math.random().toFixed(2);
-              num = Number(randomNum(n,m)) + Number(bix);
-              r2 = randomNum(2,10);
+              num = Number(randomNum(n, m)) + Number(bix);
+              r2 = randomNum(2, 10);
               return num.toFixed(r2);
             }
             </script>
           </div><!--example-->
           <div class="pre">
             <ol>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.danmu(&#39;弹幕填充&#39;,{light:true,type:&#39;b&#39;,icon:&#39;w&#39;})&quot;&gt;弹幕&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.danmu(&#39;弹幕填充&#39;, {light: true, type: &#39;b&#39;, icon: &#39;w&#39;})&quot;&gt;弹幕&lt;/button&gt;</span></li>
             </ol>
             <div class="precode"></div>
             <div class="preicon">
@@ -367,17 +367,17 @@
         <div class="table_row">
           <div class="example">
             <button class="xbutton" id="tipsxf" disabled="disabled">被关联元素</button><br><br>
-            <button class="xbutton" onclick="xtip.tips('上提示',this,{pos:'t',bgcolor:'white'})">上</button>
-            <button class="xbutton" onclick="xtip.tips('下提示',this,{pos:'b',bgcolor:'#2b84d0'})">下</button>
-            <button class="xbutton" onclick="xtip.tips('左提示',this,{pos:'l',bgcolor:'#37b72c'})">左</button>
-            <button class="xbutton" onclick="xtip.tips('右提示',this,{pos:'r',bgcolor:'#f89310'})">右</button>
+            <button class="xbutton" onclick="xtip.tips('上提示', this, {pos: 't', bgcolor: 'white'})">上</button>
+            <button class="xbutton" onclick="xtip.tips('下提示', this, {pos: 'b', bgcolor: '#2b84d0'})">下</button>
+            <button class="xbutton" onclick="xtip.tips('左提示', this, {pos: 'l', bgcolor: '#37b72c'})">左</button>
+            <button class="xbutton" onclick="xtip.tips('右提示', this, {pos: 'r', bgcolor: '#f89310'})">右</button>
             <button class="xbutton" onclick="xtip_tips()">关联元素id</button>
 
             <script type="text/javascript">
             function xtip_tips()
             {
-              xtip.tips('关联元素，长文本长文本长文本长文本，长文本长文本长文本。长文本长文本长文本长文本。','tipsxf',{
-                bgcolor: 'rgb(255,255,255)',
+              xtip.tips('关联元素，长文本长文本长文本长文本，长文本长文本长文本。长文本长文本长文本长文本。','tipsxf', {
+                bgcolor: 'rgb(255, 255, 255)',
                 times: 3,
                 pos: 't',
                 closeBtn: true,
@@ -388,20 +388,20 @@
           <div class="pre">
             <ol>
               <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;id=&quot;tipsxf&quot;&nbsp;disabled=&quot;disabled&quot;&gt;被关联元素&lt;/button&gt;&lt;br&gt;&lt;br&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;上提示&#39;,this,{pos:&#39;t&#39;,bgcolor:&#39;white&#39;})&quot;&gt;上&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;下提示&#39;,this,{pos:&#39;b&#39;,bgcolor:&#39;#2b84d0&#39;})&quot;&gt;下&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;左提示&#39;,this,{pos:&#39;l&#39;,bgcolor:&#39;#37b72c&#39;})&quot;&gt;左&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;右提示&#39;,this,{pos:&#39;r&#39;,bgcolor:&#39;#f89310&#39;})&quot;&gt;右&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;上提示&#39;, this, {pos: &#39;t&#39;, bgcolor: &#39;white&#39;})&quot;&gt;上&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;下提示&#39;, this, {pos: &#39;b&#39;, bgcolor: &#39;#2b84d0&#39;})&quot;&gt;下&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;左提示&#39;, this, {pos: &#39;l&#39;, bgcolor: &#39;#37b72c&#39;})&quot;&gt;左&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips(&#39;右提示&#39;, this, {pos: &#39;r&#39;, bgcolor: &#39;#f89310&#39;})&quot;&gt;右&lt;/button&gt;</span></li>
               <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtiper_tips1()&quot;&gt;关联元素id&lt;/button&gt;</span></li>
               <li><span></span></li>
               <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
               <li><span>function&nbsp;xtiper_tips1()</span></li>
               <li><span>{</span></li>
-              <li class="level2"><span>xtiper_tips(&#39;关联元素，长文本长文本长文本长文本，长文本长文本长文本。&#39;,&#39;tipsxf&#39;,{</span></li>
-              <li class="level3"><span>bgcolor:&nbsp;&#39;rgb(255,255,255)&#39;,</span></li>
-              <li class="level3"><span>times:&nbsp;3,</span></li>
-              <li class="level3"><span>pos:&nbsp;&#39;t&#39;,</span></li>
-              <li class="level3"><span>closeBtn:&nbsp;true,</span></li>
+              <li class="level2"><span>xtiper_tips(&#39;关联元素，长文本长文本长文本长文本，长文本长文本长文本。&#39;,&#39;tipsxf&#39;, {</span></li>
+              <li class="level3"><span>bgcolor: &nbsp;&#39;rgb(255, 255, 255)&#39;,</span></li>
+              <li class="level3"><span>times: &nbsp;3,</span></li>
+              <li class="level3"><span>pos: &nbsp;&#39;t&#39;,</span></li>
+              <li class="level3"><span>closeBtn: &nbsp;true,</span></li>
               <li class="level2"><span>});</span></li>
               <li><span>}</span></li>
               <li><span>&lt;/script&gt;</span></li>
@@ -495,30 +495,30 @@
         <div class="table_row">
           <div class="example">
             <button class="xbutton" onclick="xtip.alert('通知')">通知</button>
-            <button class="xbutton" onclick="xtip.alert('3秒后自动消失','e',{times:3,title:'Are you sure?',btn:'Sure'})">3秒后自动消失</button>
-            <button class="xbutton" onclick="xtip.alert('无遮罩','w',{shade:false})">无遮罩</button><br><br>
+            <button class="xbutton" onclick="xtip.alert('3秒后自动消失', {icon:'e', times: 3, title: 'Are you sure?', btn: 'Sure'})">3秒后自动消失</button>
+            <button class="xbutton" onclick="xtip.alert('无遮罩', {icon: 'w', shade: false})">无遮罩</button><br><br>
 
             <button class="xbutton" onclick="xtip.alert('无图标')">无图标</button>
-            <button class="xbutton" onclick="xtip.alert('成功','s')">成功</button>
-            <button class="xbutton" onclick="xtip.alert('失败','e')">失败</button>
-            <button class="xbutton" onclick="xtip.alert('警告','w')">警告</button>
-            <button class="xbutton" onclick="xtip.alert('询问','a')">询问</button>
-            <button class="xbutton" onclick="xtip.alert('微笑','h')">微笑</button>
-            <button class="xbutton" onclick="xtip.alert('自定义图标',['css/img.png','black'])">自定义图标</button>
+            <button class="xbutton" onclick="xtip.alert('成功', {icon: 's'})">成功</button>
+            <button class="xbutton" onclick="xtip.alert('失败', {icon: 'e'})">失败</button>
+            <button class="xbutton" onclick="xtip.alert('警告', {icon: 'w'})">警告</button>
+            <button class="xbutton" onclick="xtip.alert('询问', {icon: 'a'})">询问</button>
+            <button class="xbutton" onclick="xtip.alert('微笑', {icon: 'h'})">微笑</button>
+            <button class="xbutton" onclick="xtip.alert('自定义图标', {icon: ['css/img.png', 'black']})">自定义图标</button>
           </div><!--example-->
           <div class="pre">
             <ol>
               <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;通知&#39;)&quot;&gt;通知&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;3秒后自动消失&#39;,&#39;e&#39;,{times:3,title:&#39;Are&nbsp;you&nbsp;sure?&#39;,btn:&#39;Sure&#39;})&quot;&gt;3秒后自动消失&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;无遮罩&#39;,&#39;w&#39;,{shade:false})&quot;&gt;无遮罩&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;3秒后自动消失&#39;, {icon: &#39;e&#39;, times: 3, title: &#39;Are&nbsp;you&nbsp;sure?&#39;, btn: &#39;Sure&#39;})&quot;&gt;3秒后自动消失&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;无遮罩&#39;, {icon: &#39;w&#39;, shade: false})&quot;&gt;无遮罩&lt;/button&gt;</span></li>
               <li><span></span></li>
               <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;无图标&#39;)&quot;&gt;无图标&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;成功&#39;,&#39;s&#39;)&quot;&gt;成功&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;失败&#39;,&#39;e&#39;)&quot;&gt;失败&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;警告&#39;,&#39;w&#39;)&quot;&gt;警告&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;询问&#39;,&#39;a&#39;)&quot;&gt;询问&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;微笑&#39;,&#39;h&#39;)&quot;&gt;微笑&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;自定义图标&#39;,[&#39;css/img.png&#39;,&#39;black&#39;])&quot;&gt;自定义图标&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;成功&#39;, {icon: &#39;s&#39;})&quot;&gt;成功&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;失败&#39;, {icon: &#39;e&#39;})&quot;&gt;失败&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;警告&#39;, {icon: &#39;w&#39;})&quot;&gt;警告&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;询问&#39;, {icon: &#39;a&#39;})&quot;&gt;询问&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;微笑&#39;, {icon: &#39;h&#39;})&quot;&gt;微笑&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.alert(&#39;自定义图标&#39;, {icon: [&#39;css/img.png&#39;, &#39;black&#39;]})&quot;&gt;自定义图标&lt;/button&gt;</span></li>
             </ol>
             <div class="precode"></div>
             <div class="preicon">
@@ -532,7 +532,7 @@
               <div class="parain">
                 <table>
                   <tr>
-                    <td colspan="3">表达式：xtip.alert(<em>tip</em>, <em>icon</em>, <em>config</em>)</td>
+                    <td colspan="3">表达式：xtip.alert(<em>tip</em>, <em>config</em>)</td>
                   </tr>
                   <tr>
                     <td width="120">参数</td>
@@ -545,7 +545,7 @@
                     <td>[类型:string] [可选] [默认:空]</td>
                   </tr>
                   <tr>
-                    <td>icon</td>
+                    <td>congif.icon</td>
                     <td>图标</td>
                     <td>
                       <p>[类型:string] [可选] [选值]</p><br>
@@ -577,6 +577,11 @@
                     <td>[类型:string / array] [可选] [默认:确定] [说明:只存在一个按钮]</td>
                   </tr>
                   <tr>
+                    <td>config.btn1</td>
+                    <td>确定后的回调函数</td>
+                    <td>[类型:function] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
                     <td>config.times</td>
                     <td>几秒后自动关闭</td>
                     <td>[类型:number] [可选] [默认:0(不自动关闭)]</td>
@@ -585,6 +590,11 @@
                     <td>config.shade</td>
                     <td>是否开启遮罩</td>
                     <td>[类型:boolean] [可选] [默认:true(开启)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.shadeClose</td>
+                    <td>是否开启点击遮罩关闭</td>
+                    <td>[类型:boolean] [可选] [默认:true(开启)] [限制:开启遮罩时才会生效]</td>
                   </tr>
                 </table>
               </div>
@@ -600,21 +610,22 @@
         <div class="table_row">
           <div class="example">
             <button class="xbutton" onclick="delmsg(1)">删除</button>
-            <button class="xbutton" onclick="xtip.confirm('确认删除吗？','',{title:'This is English',shade:false,btn:['Yes','No']});">无遮罩</button><br><br>
+            <button class="xbutton" onclick="xtip.confirm('确认删除吗？', {title: 'This is English', shade: false, btn: ['Yes', 'No']});">无遮罩</button><br><br>
 
-            <button class="xbutton" onclick="xtip.confirm('成功','',{icon:'s'})">成功</button>
-            <button class="xbutton" onclick="xtip.confirm('失败','',{icon:'e'})">失败</button>
-            <button class="xbutton" onclick="xtip.confirm('警告','',{icon:'w'})">警告</button>
-            <button class="xbutton" onclick="xtip.confirm('询问','',{icon:'a'})">询问</button>
-            <button class="xbutton" onclick="xtip.confirm('微笑','',{icon:'h'})">微笑</button>
-            <button class="xbutton" onclick="xtip.confirm('自定义图标','',{icon:['css/img.png','#1dbbae']})">自定义图标</button>
+            <button class="xbutton" onclick="xtip.confirm('成功', {icon: 's'})">成功</button>
+            <button class="xbutton" onclick="xtip.confirm('失败', {icon: 'e'})">失败</button>
+            <button class="xbutton" onclick="xtip.confirm('警告', {icon: 'w'})">警告</button>
+            <button class="xbutton" onclick="xtip.confirm('询问', {icon: 'a'})">询问</button>
+            <button class="xbutton" onclick="xtip.confirm('微笑', {icon: 'h'})">微笑</button>
+            <button class="xbutton" onclick="xtip.confirm('自定义图标', {icon: ['css/img.png', '#1dbbae']})">自定义图标</button>
 
             <script>
             //一般可以自定义一个函数用来传参数
             function delmsg(id)
             {
-              xtip.confirm('确认删除吗？',function(){
-                xtip.msg('执行你的删除代码，要删除的id：'+id);
+              xtip.confirm('确认删除吗？', {btn1: function(){
+                  xtip.msg('执行你的删除代码，要删除的id：'+id);
+                }
               });
             }
             </script>
@@ -622,21 +633,22 @@
           <div class="pre">
             <ol>
               <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;delmsg(1)&quot;&gt;删除&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;确认删除吗？&#39;,&#39;&#39;,{title:&#39;This&nbsp;is&nbsp;English&#39;,shade:false,btn:[&#39;Yes&#39;,&#39;No&#39;]});&quot;&gt;无遮罩&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;确认删除吗？&#39;, {title: &#39;This&nbsp;is&nbsp;English&#39;, shade: false, btn: [&#39;Yes&#39;, &#39;No&#39;]});&quot;&gt;无遮罩&lt;/button&gt;</span></li>
               <li><span></span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;成功&#39;,&#39;&#39;,{icon:&#39;s&#39;})&quot;&gt;成功&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;失败&#39;,&#39;&#39;,{icon:&#39;e&#39;})&quot;&gt;失败&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;警告&#39;,&#39;&#39;,{icon:&#39;w&#39;})&quot;&gt;警告&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;询问&#39;,&#39;&#39;,{icon:&#39;a&#39;})&quot;&gt;询问&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;微笑&#39;,&#39;&#39;,{icon:&#39;h&#39;})&quot;&gt;微笑&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;自定义图标&#39;,&#39;&#39;,{icon:[&#39;css/img.png&#39;,&#39;#1dbbae&#39;]})&quot;&gt;自定义图标&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;成功&#39;, {icon: &#39;s&#39;})&quot;&gt;成功&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;失败&#39;, {icon: &#39;e&#39;})&quot;&gt;失败&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;警告&#39;, {icon: &#39;w&#39;})&quot;&gt;警告&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;询问&#39;, {icon: &#39;a&#39;})&quot;&gt;询问&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;微笑&#39;, {icon: &#39;h&#39;})&quot;&gt;微笑&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.confirm(&#39;自定义图标&#39;, {icon: [&#39;css/img.png&#39;, &#39;#1dbbae&#39;]})&quot;&gt;自定义图标&lt;/button&gt;</span></li>
               <li><span></span></li>
               <li><span>&lt;script&gt;</span></li>
               <li><span>//一般可以自定义一个函数用来传参数</span></li>
               <li><span>function&nbsp;delmsg(id)</span></li>
               <li><span>{</span></li>
-              <li class="level2"><span>xtip.confirm(&#39;确认删除吗？&#39;,function(){</span></li>
-              <li class="level3"><span>xtip.msg(&#39;执行你的删除代码，要删除的id：&#39;+id);</span></li>
+              <li class="level2"><span>xtip.confirm(&#39;确认删除吗？&#39;, {btn1: function(){</span></li>
+              <li class="level4"><span>xtip.msg(&#39;执行你的删除代码，要删除的id：&#39;+id);</span></li>
+              <li class="level3"><span>}</span></li>
               <li class="level2"><span>});</span></li>
               <li><span>}</span></li>
               <li><span>&lt;/script&gt;</span></li>
@@ -664,11 +676,6 @@
                     <td>tip</td>
                     <td>消息内容</td>
                     <td>[类型:string] [可选] [默认:空]</td>
-                  </tr>
-                  <tr>
-                    <td>myfun</td>
-                    <td>确定后的回调函数</td>
-                    <td>[类型:function] [可选] [默认:空]</td>
                   </tr>
                   <tr>
                     <td>config.icon</td>
@@ -703,9 +710,24 @@
                     <td>[类型:array] [可选] [默认:确定,取消]</td>
                   </tr>
                   <tr>
+                    <td>config.btn1</td>
+                    <td>确定后的回调函数</td>
+                    <td>[类型:function] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
+                    <td>config.btn2</td>
+                    <td>取消后的回调函数</td>
+                    <td>[类型:function] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
                     <td>config.shade</td>
                     <td>是否开启遮罩</td>
                     <td>[类型:boolean] [可选] [默认:true(开启)]</td>
+                  </tr>
+                  <tr>
+                    <td>config.shadeClose</td>
+                    <td>是否开启点击遮罩关闭</td>
+                    <td>[类型:boolean] [可选] [默认:true(开启)] [限制:开启遮罩时才会生效]</td>
                   </tr>
                 </table>
               </div>
@@ -729,7 +751,6 @@
               <td width="70"><strong>type 类型</strong></td>
               <td width="120"><strong>按钮</strong></td>
               <td width="260"><strong>默认图标</strong></td>
-              <td width="110"><strong>参数顺序</strong></td>
               <td><strong>几秒后自动消失</strong></td>
               <td><strong>回调函数</strong></td>
             </tr>
@@ -738,14 +759,9 @@
               <td>
                 <button class="xbutton xlit">确定</button>
               </td>
-              <td><p>无</p><br><p>说明：由于无法判断通知内容的性质（成功、失败或其他），一般需要手动进行图标的设置，所以图标的位置放置靠前的第2位</p></td>
-              <td>
-                <p>1.提示内容</p>
-                <p>2.图标</p>
-                <p>3.其他参数</p>
-              </td>
+              <td><p>无</p></td>
               <td>默认不会自动消失，也可以设置几秒后自动消失</td>
-              <td>所有按钮都没有回调函数</td>
+              <td>只有一个回调函数：btn1，绑定在确定按钮</td>
             </tr>
             <tr>
               <td>confirm</td>
@@ -754,15 +770,9 @@
               </td>
               <td>
                 <p>warning(警告)</p><br>
-                <p>说明：反馈的内容性质一般接近于警告、询问，相对来说图标就显得并不那么重要，所以把更为重要的回调函数放在参数的第2位</p>
-              </td>
-              <td>
-                <p>1.提示内容</p>
-                <p>2.回调函数</p>
-                <p>3.其他参数</p>
               </td>
               <td>不会自动消失</td>
-              <td>只有一个回调函数：btn1，绑定在确定按钮</td>
+              <td>回调函数：btn1、btn2，分别对应确定、取消按钮</td>
             </tr>
           </table>
         </div></div>-->
@@ -800,6 +810,10 @@
                 btn3: function(){
                   xtip.msg('我爱拉姆');
                 },
+                btn4: function(){
+                  xtip.msg('斯巴鲁');
+                },
+                btnbg: [true, true, true, false],
                 zindex: 99999,
               });
             }
@@ -853,6 +867,10 @@
               <li class="level3"><span>btn3:&nbsp;function(){</span></li>
               <li class="level4"><span>xtip.msg(&#39;我爱拉姆&#39;);</span></li>
               <li class="level3"><span>},</span></li>
+              <li class="level3"><span>btn4: function(){</span></li>
+              <li class="level4"><span>xtip.msg('斯巴鲁');</span></li>
+              <li class="level3"><span>},</span></li>
+              <li class="level3"><span>btnbg: [true, true, true, false],</span></li>
               <li class="level3"><span>zindex:&nbsp;99999,</span></li>
               <li class="level2"><span>});</span></li>
               <li><span>}</span></li>
@@ -986,6 +1004,11 @@
                     <td>[类型:function] [可选] [默认:空]</td>
                   </tr>
                   <tr>
+                    <td>config.btnbg</td>
+                    <td>按钮[1-4]的按钮颜色是否根据是否有回调函数显示，有回调函数则显示深色，否则为白色</td>
+                    <td>[类型:function] [可选] [默认:空]</td>
+                  </tr>
+                  <tr>
                     <td>config.min</td>
                     <td>是否开启最小化按钮</td>
                     <td>[类型:boolean] [可选] [默认:false(不开启)]</td>
@@ -1009,12 +1032,12 @@
         <div class="table_row">
           <div class="example">
             <button class="xbutton" onclick="xtip.photo('img1')">相册层</button>
-            <button class="xbutton" onclick="xtip.photo('img1',{height:'500px',title:'固定高度'})">固定高度</button>
+            <button class="xbutton" onclick="xtip.photo('img1', {height: '500px', title: '固定高度'})">固定高度</button>
           </div><!--example-->
           <div class="pre">
             <ol>
               <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.photo(&#39;img1&#39;)&quot;&gt;相册层&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.photo(&#39;img1&#39;,{height:&#39;500px&#39;,title:&#39;固定高度&#39;})&quot;&gt;固定高度&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.photo(&#39;img1&#39;, {height: &#39;500px&#39;, title: &#39;固定高度&#39;})&quot;&gt;固定高度&lt;/button&gt;</span></li>
             </ol>
             <div class="precode"></div>
             <div class="preicon">
@@ -1162,7 +1185,7 @@
                 height: '400px',
                 maxWidth: '100%',
                 lock: true,
-                move:false,
+                move: false,
                 max: true,
                 bgcolor: '#000',
               });
@@ -1198,7 +1221,7 @@
               <li class="level3"><span>height:&nbsp;&#39;400px&#39;,</span></li>
               <li class="level3"><span>maxWidth:&nbsp;&#39;100%&#39;,</span></li>
               <li class="level3"><span>lock:&nbsp;true,</span></li>
-              <li class="level3"><span>move:false,</span></li>
+              <li class="level3"><span>move:&nbsp;false,</span></li>
               <li class="level3"><span>max:&nbsp;true,</span></li>
               <li class="level3"><span>bgcolor:&nbsp;&#39;#000&#39;,</span></li>
               <li class="level2"><span>});</span></li>
@@ -1403,7 +1426,7 @@
 
         <div class="table_row">
           <div class="page_tit2">【html类型】html代码</div>
-          <div class="page_tit3">直接填写html代码。长代码不推荐使用 <span>html</span> 类型，用 js 拼接 html 会导致代码可读性极差，遇到多引号、双引号时还需要转义，调试和后期修改不方便，推荐使用 <span>noready</span> 类型。</div>
+          <div class="page_tit3">直接填写html代码。长代码推荐使用 <span>noready</span> 类型。</div>
           <div class="example">
             <button class="xbutton" onclick="xtip_open4()">html代码</button>
             <button class="xbutton" onclick="xtip_open4_2()">APP模式</button>
@@ -1415,7 +1438,7 @@
                 type: 'html',
                 width: '720px',
                 height: '550px',
-                content: '<div id="htmlcode" class="myclass">直接填写html代码。<br><br><button class="xbutton" onclick="xtip.msg(\'你好鸭\')">这个按钮的引号需要转义</button><br><br>长代码不推荐使用 html 类型，用 js 拼接 html 会导致代码可读性极差，遇到多引号、双引号时还需要转义，调试和后期修改不方便。<br><br>本例的代码长这个样子：<br><br><div class="keduxing"></div><br><br>是不是可读性极差，有点让人想抓狂？<br><br>所以，长代码推荐用 <span class="litit">noready</span> 类型！</div>',
+                content: '<div id="htmlcode" class="myclass">直接填写html代码。长代码推荐使用 <span class="litit">noready</span> 类型！</div>',
                 title: false,
                 lock: true,
               });
@@ -1727,6 +1750,11 @@
                     </td>
                   </tr>
                   <tr>
+                    <td>config.success</td>
+                    <td>成功后的回调函数</td>
+                    <td>[类型:function] [可选] [默认:空] [说明:可返回自身弹层对象 success: function(x){console.log(x);}]</td>
+                  </tr>
+                  <tr>
                     <td>config.zindex</td>
                     <td>层叠顺序</td>
                     <td>[类型:number] [可选] [默认:99999]</td>
@@ -1812,8 +1840,8 @@
           <div class="example">
             <button class="xbutton" onclick="xtip.load()">默认</button>
             <button class="xbutton" onclick="xtip.load('加载中...')">带文字</button>
-            <button class="xbutton" onclick="xtip.load('',{lock:true})">锁定滚动条</button>
-            <button class="xbutton" onclick="xtip.load('2秒后自动关闭',{times:2})">2秒后自动关闭</button>
+            <button class="xbutton" onclick="xtip.load('', {lock: true})">锁定滚动条</button>
+            <button class="xbutton" onclick="xtip.load('2秒后自动关闭', {times: 2})">2秒后自动关闭</button>
             <button class="xbutton" onclick="ajaxdata()">Ajax返回结果后关闭load层</button>
 
             <script type="text/javascript">
@@ -1826,7 +1854,7 @@
                 url: "ajax.php",
                 dataType: "json",
                 data: "",
-                success:function(redata){
+                success: function(redata){
                   if(redata.status==1){
                     xtip.close(loadid);
                   }
@@ -1839,8 +1867,8 @@
             <ol>
               <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.load()&quot;&gt;默认&lt;/button&gt;</span></li>
               <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.load(&#39;加载中...&#39;)&quot;&gt;带文字&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.load(&#39;&#39;,{lock:true})&quot;&gt;锁定滚动条&lt;/button&gt;</span></li>
-              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.load(&#39;2秒后自动关闭&#39;,{times:2})&quot;&gt;2秒后自动关闭&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.load(&#39;&#39;, {lock: true})&quot;&gt;锁定滚动条&lt;/button&gt;</span></li>
+              <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;xtip.load(&#39;2秒后自动关闭&#39;, {times: 2})&quot;&gt;2秒后自动关闭&lt;/button&gt;</span></li>
               <li><span>&lt;button&nbsp;class=&quot;xbutton&quot;&nbsp;onclick=&quot;ajaxdata()&quot;&gt;Ajax返回结果后关闭load层&lt;/button&gt;</span></li>
               <li><span></span></li>
               <li><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></li>
@@ -1853,7 +1881,7 @@
               <li class="level3"><span>url:&nbsp;&quot;ajax.php&quot;,</span></li>
               <li class="level3"><span>dataType:&nbsp;&quot;json&quot;,</span></li>
               <li class="level3"><span>data:&nbsp;&quot;&quot;,</span></li>
-              <li class="level3"><span>success:function(redata){</span></li>
+              <li class="level3"><span>success:&nbsp;function(redata){</span></li>
               <li class="level4"><span>if(redata.status==1){</span></li>
               <li class="level5"><span>xtip.close(loadid);</span></li>
               <li class="level4"><span>}</span></li>
@@ -1941,7 +1969,7 @@
                   xtip.msg('已经删除了！')
                 },
                 end: function(){
-                  xtip.msg('关闭了',{times:1});
+                  xtip.msg('关闭了', {times: 1});
                 },
                 btnClose: 'Close',
               });
@@ -1991,7 +2019,7 @@
               <li class="level4"><span>xtip.msg(&#39;已经删除了！&#39;)</span></li>
               <li class="level3"><span>},</span></li>
               <li class="level3"><span>end:&nbsp;function(){</span></li>
-              <li class="level4"><span>xtip.msg(&#39;关闭了&#39;,{times:1});</span></li>
+              <li class="level4"><span>xtip.msg(&#39;关闭了&#39;, {times: 1});</span></li>
               <li class="level3"><span>},</span></li>
               <li class="level3"><span>btnClose:&nbsp;&#39;Close&#39;,</span></li>
               <li class="level2"><span>});</span></li>
@@ -2249,7 +2277,7 @@ window.onload=function(){
 
   setTimeout(function(){
     $(".pleft").css({"transition-duration":"0.2s"});
-  },1);
+  }, 1);
 
 }
 
@@ -2264,13 +2292,13 @@ function space(num)
 }
 
 //复制代码
-$(document).on("click",".precopy",function(){
+$(document).on("click",".precopy", function(){
 	pa = $(this).parents(".pre");
 	olheight = $(pa).find("ol").height();
 	if($(pa).find(".precode").is(":hidden"))
 	{
 		ol = $(pa).find("ol li");
-		$(pa).find(".precode").css({"height":olheight+"px"});
+		$(pa).find(".precode").css({"height": olheight+"px"});
 		html = '<textarea class="xtext xful">';
 		for(i=0;i<ol.length;i++)
 		{
@@ -2300,7 +2328,7 @@ $(document).on("click",".precopy",function(){
 			if($(ol[i]).find("span").html())
 			{
         text = $(ol[i]).find("span").html();
-        text = text.replace(/\<\/{0,1}span\>/g,"");  //去除span标签
+        text = text.replace(/\<\/{0,1}span\>/g, "");  //去除span标签
         text = text.replace("&nbsp;"," ");  //空格
 				html += text;
 			}
@@ -2323,34 +2351,34 @@ $(document).on("click",".precopy",function(){
 		$(pa).find(".precode").css({"height":""});
 	}
 })
-$(document).on("blur",".precode textarea",function(){
+$(document).on("blur",".precode textarea", function(){
 	$(this).parents(".pre").find("ol").show();
 	$(this).parent(".precode").hide();
 	$(this).parent(".precode").html("");
 })
 
 //代码暗色调
-$(document).on("click",".pretype",function(){
+$(document).on("click",".pretype", function(){
 	$(this).parents(".pre").toggleClass("on");
 })
 
 //app
-$(document).on("click",".top_btn.ll",function(){
+$(document).on("click",".top_btn.ll", function(){
   $(".pleft").addClass("on");
   $(".pleft_zw").addClass("on");
 })
 
-$(document).on("click",".top_btn.lr",function(){
-  $("body, html").animate({scrollTop:0},0);
+$(document).on("click",".top_btn.lr", function(){
+  $("body, html").animate({scrollTop: 0}, 0);
   $(".top_cen").text("关于 Xtiper");
 })
 
-$(document).on("click",".pleft_zw, .pleft li a",function(){
+$(document).on("click",".pleft_zw, .pleft li a", function(){
   $(".pleft").removeClass("on");
   $(".pleft_zw").removeClass("on");
 })
 
-$(document).on("click",".para_app",function(){
+$(document).on("click",".para_app", function(){
   $(this).parent().find(".para").toggle();
   text = $(this).text();
   if(text=='查看参数'){

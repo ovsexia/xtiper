@@ -19,6 +19,15 @@ Xtiper 是一款整合 PC 、移动端的弹层弹窗（甚至还有弹幕）解
 
 ### 版本更新
 
+#### v2.7 发布：[下载](https://github.com/ovsexia/xtiper/releases/tag/v2.7.0)
+1.open层新增成功回调函数
+
+2.alert、confirm类型重新调整参数位置，避免混乱
+
+3.alert、confirm新增了确认取消的回调函数
+
+4.其他小bug修复
+
 #### v2.6 正式版发布：[下载](https://github.com/ovsexia/xtiper/releases/tag/v2.6.6)
 1. win层新增最大宽度，优化win层宽度为百分比时的位置
 
